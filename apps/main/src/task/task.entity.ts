@@ -1,9 +1,11 @@
-import { Entity, Column } from 'typeorm';
+import { Entity, ManyToOne } from 'typeorm';
 
 import { Task as CoreTask } from '@core/entities';
 
+import { Trader } from '../trader/trader.entity';
+
 @Entity()
 export class Task extends CoreTask {
-  @Column({ type: 'datetime', nullable: true, default: null })
-  createdAt: Date;
+  @ManyToOne(type => Trader, trader => trader.tasks)
+  trader: Trader;
 }

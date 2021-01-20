@@ -4,6 +4,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import config from './config/config';
 
 import { TaskModule } from './task/task.module';
+import { TraderModule } from './trader/trader.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { TaskModule } from './task/task.module';
     }),
 
     TaskModule,
+    TraderModule,
   ],
 })
 export class AppModule {}

@@ -1,13 +1,21 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+
+// import { Trader } from '../trader/trader.entity';
 
 @Entity()
 export class Task {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ length: 500 })
+  @Column({ comment: 'Title', length: 128 })
   title: string;
 
-  @Column('text')
+  @Column('text', { comment: 'Description' })
   description: string;
+
+  @Column({ comment: 'Created At', type: 'datetime' })
+  createdAt: Date;
+
+  // @ManyToOne(type => Trader, trader => trader.tasks)
+  // trader: Trader;
 }
