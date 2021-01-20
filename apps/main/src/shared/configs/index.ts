@@ -19,12 +19,16 @@ export const CONFIG = {
   API_TRADER_PREFIX: process.env.API_TRADER_PREFIX || 'api/trader',
 
   SWAGGER_ADMIN_PREFIX: process.env.SWAGGER_ADMIN_PREFIX || 'api/doc/admin',
-  SWAGGER_ADMIN_TITLE: process.env.SWAGGER_ADMIN_PREFIX || 'The Blue Lagoon: Admin',
-  SWAGGER_ADMIN_DESCRIPTION: process.env.SWAGGER_ADMIN_DESCRIPTION || 'Admin API description',
+  SWAGGER_ADMIN_TITLE:
+    process.env.SWAGGER_ADMIN_PREFIX || 'The Blue Lagoon: Admin',
+  SWAGGER_ADMIN_DESCRIPTION:
+    process.env.SWAGGER_ADMIN_DESCRIPTION || 'Admin API description',
   SWAGGER_ADMIN_VERSION: process.env.SWAGGER_ADMIN_VERSION || '1.0',
 
   SWAGGER_TRADER_PREFIX: process.env.SWAGGER_TRADER_PREFIX || 'api/doc/trader',
-  SWAGGER_TRADER_TITLE: process.env.SWAGGER_ADMIN_PREFIX || 'The Blue Lagoon: Trader',
-  SWAGGER_TRADER_DESCRIPTION: process.env.SWAGGER_ADMIN_DESCRIPTION || 'Trader API description',
+  SWAGGER_TRADER_TITLE:
+    process.env.SWAGGER_ADMIN_PREFIX || 'The Blue Lagoon: Trader',
+  SWAGGER_TRADER_DESCRIPTION:
+    process.env.SWAGGER_ADMIN_DESCRIPTION || 'Trader API description',
   SWAGGER_TRADER_VERSION: process.env.SWAGGER_ADMIN_VERSION || '1.0',
 };

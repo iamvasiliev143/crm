@@ -6,11 +6,6 @@ import { TaskModule } from './modules/task/task.module';
 import { TraderModule } from './modules/trader/trader.module';
 
 @Module({
-  imports: [
-    DatabaseModule,
-
-    TaskModule,
-    TraderModule,
-  ],
+  imports: [DatabaseModule, TaskModule, TraderModule],
 })
 export class GlobalAdminModule {}

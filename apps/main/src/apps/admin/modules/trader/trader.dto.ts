@@ -1,3 +1,3 @@
-import { TraderSignupDTO } from "@core/admin/dtos";
+import { TraderSignupDTO } from '@core/admin/dtos';
 
-export class TraderSignup extends TraderSignupDTO{}
+export class TraderSignup extends TraderSignupDTO {}

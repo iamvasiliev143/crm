@@ -1,14 +1,14 @@
-import express from "express";
+import express from 'express';
 
 import { ExpressAdapter } from '@nestjs/platform-express';
 import { NestFactory } from '@nestjs/core';
-import { BadRequestException, ValidationPipe } from "@nestjs/common";
-import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
+import { BadRequestException, ValidationPipe } from '@nestjs/common';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 import { GlobalAdminModule } from './apps/admin/admin.module';
 import { GlobalTraderModule } from './apps/trader/trader.module';
 
-import { CONFIG } from "@shared/configs";
+import { CONFIG } from '@shared/configs';
 
 async function bootstrap() {
   const server = express();
@@ -33,9 +33,9 @@ async function bootstrap() {
   );
 
   const adminSwaggerConfigs = new DocumentBuilder()
-  .setTitle(CONFIG.SWAGGER_ADMIN_TITLE)
-  .setDescription(CONFIG.SWAGGER_ADMIN_DESCRIPTION)
-  .setVersion(CONFIG.SWAGGER_ADMIN_VERSION)
+    .setTitle(CONFIG.SWAGGER_ADMIN_TITLE)
+    .setDescription(CONFIG.SWAGGER_ADMIN_DESCRIPTION)
+    .setVersion(CONFIG.SWAGGER_ADMIN_VERSION)
     .build();
 
   const traderSwaggerConfigs = new DocumentBuilder()
@@ -44,11 +44,21 @@ async function bootstrap() {
     .setVersion(CONFIG.SWAGGER_TRADER_VERSION)
     .build();
 
-  const adminSwaggerDocument = SwaggerModule.createDocument(admin, adminSwaggerConfigs);
-  const traderSwaggerDocument = SwaggerModule.createDocument(trader, traderSwaggerConfigs);
+  const adminSwaggerDocument = SwaggerModule.createDocument(
+    admin,
+    adminSwaggerConfigs,
+  );
+  const traderSwaggerDocument = SwaggerModule.createDocument(
+    trader,
+    traderSwaggerConfigs,
+  );
 
   SwaggerModule.setup(CONFIG.SWAGGER_ADMIN_PREFIX, admin, adminSwaggerDocument);
-  SwaggerModule.setup(CONFIG.SWAGGER_TRADER_PREFIX, trader, traderSwaggerDocument);
+  SwaggerModule.setup(
+    CONFIG.SWAGGER_TRADER_PREFIX,
+    trader,
+    traderSwaggerDocument,
+  );
 
   await admin.init();
   await trader.init();
