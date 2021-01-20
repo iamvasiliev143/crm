@@ -9,5 +9,5 @@ export class Task extends CoreTask {
   @ManyToOne((type) => Trader, (trader) => trader.tasks, {
     onDelete: 'CASCADE',
   })
-  trader: Trader;
+  trader!: Trader;
 }

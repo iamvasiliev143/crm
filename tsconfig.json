@@ -12,6 +12,7 @@
     "outDir": "./dist",
     "baseUrl": "./",
     "incremental": true,
+    "strict": true,
 
     "paths": {
       "@core/controllers":["./apps/core/src/_controllers"],
@@ -19,8 +20,6 @@
       "@core/dtos":["./apps/core/src/_dtos"],
       "@core/modules":["./apps/core/src/_modules"],
       "@core/services":["./apps/core/src/_services"],
-
-      "@app/config": ["/src/config"]
     }
   }
 }

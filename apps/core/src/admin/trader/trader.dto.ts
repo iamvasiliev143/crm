@@ -8,21 +8,21 @@ export class TraderSignupDTO {
     type: String,
     example: 'Mikhail',
   })
-  firstName: string;
+  firstName!: string;
 
   @IsNotEmpty({ message: 'Last Name cannot be empty!' })
   @ApiProperty({
     type: String,
     example: 'Vasiliev',
   })
-  lastName: string;
+  lastName!: string;
 
   @IsNotEmpty({ message: 'Last Name cannot be empty!' })
   @ApiProperty({
     type: Date,
     example: new Date('1999-04-10'),
   })
-  birthDate: Date;
+  birthDate!: Date;
 
   @IsNotEmpty({ message: 'Email cannot be empty!' })
   @IsEmail(undefined, { message: 'Email is wrong!' })
@@ -30,14 +30,14 @@ export class TraderSignupDTO {
     type: String,
     example: 'iamvasliev143@gmail.com',
   })
-  email: string;
+  email!: string;
 
   @IsNotEmpty({ message: 'Password cannot be empty!' })
   @ApiProperty({
     type: String,
     example: 'Qwerty123',
   })
-  password: string;
+  password!: string;
 
   @IsNotEmpty({ message: 'Mobile Phone cannot be empty!' })
   @IsMobilePhone(undefined, undefined, { message: 'Mobile Phone is wrong!' })
@@ -45,12 +45,12 @@ export class TraderSignupDTO {
     type: String,
     example: '+380992247184',
   })
-  phone: string;
+  phone!: string;
 
   @ApiProperty({
     type: String,
     required: false,
     example: 'live:36e254e929e41e85',
   })
-  skype: string;
+  skype!: string;
 }

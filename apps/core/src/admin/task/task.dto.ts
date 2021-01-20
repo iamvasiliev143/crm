@@ -8,12 +8,12 @@ export class TaskDTO {
     type: String,
     example: 'Task #1',
   })
-  title: string;
+  title!: string;
 
   @IsNotEmpty({ message: 'Description cannot be empty!' })
   @ApiProperty({
     type: String,
     example: 'Description',
   })
-  description: string;
+  description!: string;
 }
