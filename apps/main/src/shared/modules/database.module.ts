@@ -1,17 +1,17 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import config from '../../config';
+import { CONFIG } from '@shared/configs';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: config.MYSQL_HOST,
-      port: config.MYSQL_PORT,
-      username: config.MYSQL_USER,
-      password: config.MYSQL_PASSWORD,
-      database: config.MYSQL_DATABASE,
+      host: CONFIG.MYSQL_HOST,
+      port: CONFIG.MYSQL_PORT,
+      username: CONFIG.MYSQL_USER,
+      password: CONFIG.MYSQL_PASSWORD,
+      database: CONFIG.MYSQL_DATABASE,
       synchronize: true,
       autoLoadEntities: true,
       keepConnectionAlive: true,

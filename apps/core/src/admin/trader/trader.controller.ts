@@ -1,8 +1,8 @@
 import { Controller, Get, Post, Body } from '@nestjs/common';
 import { ApiTags, ApiOperation } from '@nestjs/swagger';
 
-import { CoreTraderService } from '@core/services';
-import { TraderSignupDTO } from '@core/dtos';
+import { CoreTraderService } from '@core/admin/services';
+import { TraderSignupDTO } from '@core/admin/dtos';
 
 @ApiTags('Traders')
 @Controller('traders')

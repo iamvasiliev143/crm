@@ -1,8 +1,8 @@
-import { Controller, Logger, Get, Post, Body } from '@nestjs/common';
+import { Controller, Logger, Get, Post, Patch, Delete, Body, Param, Query } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiQuery } from '@nestjs/swagger';
 
-import { CoreTaskService } from '@core/services';
-import { TaskDTO } from '@core/dtos';
+import { CoreTaskService } from '@core/admin/services';
+import { TaskDTO } from '@core/admin/dtos';
 
 @ApiTags('Tasks')
 @Controller('tasks')

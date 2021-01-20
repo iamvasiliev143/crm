@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
-import { CoreTaskService } from '@core/services';
+import { CoreTaskService } from '@core/admin/services';
 
 import { Task } from './task.entity';
 

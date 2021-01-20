@@ -1,6 +1,6 @@
 import { Entity, ManyToOne } from 'typeorm';
 
-import { Task as CoreTask } from '@core/entities';
+import { Task as CoreTask } from '@core/admin/entities';
 
 import { Trader } from '../trader/trader.entity';
 

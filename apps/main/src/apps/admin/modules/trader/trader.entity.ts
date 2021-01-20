@@ -1,6 +1,6 @@
 import { Entity, OneToMany } from 'typeorm';
 
-import { Trader as CoreTrader } from '@core/entities';
+import { Trader as CoreTrader } from '@core/admin/entities';
 
 import { Task } from '../task/task.entity';
 

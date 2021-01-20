@@ -1,7 +1,7 @@
 import { Controller } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 
-import { CoreTraderController } from '@core/controllers';
+import { CoreTraderController } from '@core/admin/controllers';
 
 import { TraderService } from './trader.service';
 

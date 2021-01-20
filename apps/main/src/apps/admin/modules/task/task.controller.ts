@@ -1,7 +1,7 @@
 import { Controller } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 
-import { CoreTaskController } from '@core/controllers';
+import { CoreTaskController } from '@core/admin/controllers';
 
 import { TaskService } from './task.service';
 

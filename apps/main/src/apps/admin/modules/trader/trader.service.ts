@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
-import { CoreTraderService } from '@core/services';
+import { CoreTraderService } from '@core/admin/services';
 
 import { Trader } from './trader.entity';
 
