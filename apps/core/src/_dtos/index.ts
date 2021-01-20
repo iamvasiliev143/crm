@@ -1,2 +1,2 @@
-export * from '../task/task.dto';
-export * from '../trader/trader.dto';
+export * from '../admin/task/task.dto';
+export * from '../admin/trader/trader.dto';

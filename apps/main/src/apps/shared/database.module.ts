@@ -1,10 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import config from './config/config';
-
-import { TaskModule } from './task/task.module';
-import { TraderModule } from './trader/trader.module';
+import config from '../../config';
 
 @Module({
   imports: [
@@ -17,10 +14,10 @@ import { TraderModule } from './trader/trader.module';
       database: config.MYSQL_DATABASE,
       synchronize: true,
       autoLoadEntities: true,
+      keepConnectionAlive: true,
     }),
-
-    TaskModule,
-    TraderModule,
   ],
+
+  exports: [TypeOrmModule],
 })
-export class AppModule {}
+export class DatabaseModule {}

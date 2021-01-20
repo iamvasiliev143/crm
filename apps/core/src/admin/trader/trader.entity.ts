@@ -1,14 +1,8 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 import { IsEmail, IsMobilePhone, IsDate } from 'class-validator';
-
-// import { Task } from '../task/task.entity';
 
 @Entity()
 export class Trader {
-  constructor(firstName: string, lastName: string) {
-    this.fullName = firstName + '' + lastName;
-  }
-
   @PrimaryGeneratedColumn('uuid', { comment: 'Trader ID' })
   id: string;
 
@@ -37,7 +31,4 @@ export class Trader {
 
   @Column({ comment: 'Skype', length: 100, nullable: true, default: null })
   skype: string;
-
-  // @OneToMany(type => Task, task => task.trader)
-  // tasks: Task[];
 }

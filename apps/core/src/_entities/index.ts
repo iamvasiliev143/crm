@@ -1,2 +1,2 @@
-export * from '../task/task.entity';
-export * from '../trader/trader.entity';
+export * from '../admin/task/task.entity';
+export * from '../admin/trader/trader.entity';

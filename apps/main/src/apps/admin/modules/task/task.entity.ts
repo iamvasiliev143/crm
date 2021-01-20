@@ -6,6 +6,8 @@ import { Trader } from '../trader/trader.entity';
 
 @Entity()
 export class Task extends CoreTask {
-  @ManyToOne(type => Trader, trader => trader.tasks)
+  @ManyToOne((type) => Trader, (trader) => trader.tasks, {
+    onDelete: 'CASCADE',
+  })
   trader: Trader;
 }

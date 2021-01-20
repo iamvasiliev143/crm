@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "module": "commonjs",
+    "esModuleInterop": true,
     "declaration": true,
     "removeComments": true,
     "emitDecoratorMetadata": true,
@@ -12,13 +13,14 @@
     "baseUrl": "./",
     "incremental": true,
 
-
     "paths": {
       "@core/controllers":["./apps/core/src/_controllers"],
       "@core/entities":["./apps/core/src/_entities"],
       "@core/dtos":["./apps/core/src/_dtos"],
       "@core/modules":["./apps/core/src/_modules"],
       "@core/services":["./apps/core/src/_services"],
+
+      "@app/config": ["/src/config"]
     }
   }
 }

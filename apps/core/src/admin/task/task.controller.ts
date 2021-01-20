@@ -13,7 +13,7 @@ export class CoreTaskController {
 
   @Get('/')
   @ApiOperation({
-    summary: 'Getting tasks'
+    summary: 'Getting tasks',
   })
   @ApiQuery({ name: 'pageIndex', required: false })
   @ApiQuery({ name: 'pageSize', required: false })
@@ -23,7 +23,7 @@ export class CoreTaskController {
 
   @Post('/create')
   @ApiOperation({
-    summary: 'Creating task'
+    summary: 'Creating task',
   })
   async createTask(@Body() taskDTO: TaskDTO) {
     return await this.taskService.createTask();
