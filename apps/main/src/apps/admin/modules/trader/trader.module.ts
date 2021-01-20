@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { Trader } from './trader.entity';
+import { Trader } from '@shared/entities';
+
 import { TraderController } from './trader.controller';
 import { TraderService } from './trader.service';
 

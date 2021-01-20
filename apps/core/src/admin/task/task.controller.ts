@@ -36,6 +36,5 @@ export class CoreTaskController {
     summary: 'Creating task',
   })
   async createTask(@Body() taskDTO: TaskDTO) {
-    return await this.taskService.createTask();
   }
 }

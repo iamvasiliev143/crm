@@ -4,7 +4,7 @@ import { Repository } from 'typeorm';
 
 import { CoreTraderService } from '@core/admin/services';
 
-import { Trader } from './trader.entity';
+import { Trader } from '@shared/entities';
 
 @Injectable()
 export class TraderService extends CoreTraderService {

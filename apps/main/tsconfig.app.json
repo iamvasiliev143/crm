@@ -2,24 +2,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "declaration": false,
-    "outDir": "../../dist/apps/main",
-
-    "paths": {
-      "@core/admin/controllers":["./apps/core/src/admin/_controllers"],
-      "@core/admin/entities":["./apps/core/src/admin/_entities"],
-      "@core/admin/dtos":["./apps/core/src/admin/_dtos"],
-      "@core/admin/modules":["./apps/core/src/admin/_modules"],
-      "@core/admin/services":["./apps/core/src/admin/_services"],
-
-      "@core/trader/controllers":["./apps/core/src/trader/_controllers"],
-      "@core/trader/entities":["./apps/core/src/trader/_entities"],
-      "@core/trader/dtos":["./apps/core/src/trader/_dtos"],
-      "@core/trader/modules":["./apps/core/src/trader/_modules"],
-      "@core/trader/services":["./apps/core/src/trader/_services"],
-
-      "@shared/configs":["./apps/main/src/shared/configs"],
-      "@shared/modules":["./apps/main/src/shared/modules"],
-    }
+    "outDir": "../../dist/apps/main"
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", "test", "**/*spec.ts"]

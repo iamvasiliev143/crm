@@ -4,7 +4,7 @@ import { Repository } from 'typeorm';
 
 import { CoreTaskService } from '@core/admin/services';
 
-import { Task } from './task.entity';
+import { Task } from '@shared/entities';
 
 @Injectable()
 export class TaskService extends CoreTaskService {

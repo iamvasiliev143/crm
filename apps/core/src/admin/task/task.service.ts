@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
-import { Task as CoreTask } from '@core/admin/entities';
+import { Task as CoreTask } from '@core/db/entities';
 
 @Injectable()
 export class CoreTaskService {
@@ -13,12 +13,5 @@ export class CoreTaskService {
 
   async getAllTasks() {
     return await this.taskRepo.find();
-  }
-
-  async createTask() {
-    return await this.taskRepo.save({
-      title: 'Test #1',
-      description: 'Description!',
-    });
   }
 }
