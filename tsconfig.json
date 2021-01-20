@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "es2017",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "paths": {
+      "@core/controllers":["./apps/core/src/_controllers"],
+      "@core/entities":["./apps/core/src/_entities"],
+      "@core/modules":["./apps/core/src/_modules"],
+      "@core/services":["./apps/core/src/_services"],
+    }
+  }
+}

@@ -1,0 +1,25 @@
+version: "3"
+services:
+  mysql:
+    container_name: blue-lagoon_mysql
+    build: ./mysql/
+    ports:
+      - "3382:3306"
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+      - ./runtime/logs/mysql:/var/log/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 2N*KH_-A@aCX=QH
+
+  phpmyadmin:
+    container_name: blue-lagoon_phpmyadmin
+    image: phpmyadmin/phpmyadmin:latest
+    links:
+      - mysql:db
+    ports:
+      - "82:80"
+    environment:
+      PMA_USER: root
+      PMA_PASSWORD: 2N*KH_-A@aCX=QH
+      PMA_ARBITRARY: 1
+      PMA_ABSOLUTE_URI: http://pma.blagoon.local
