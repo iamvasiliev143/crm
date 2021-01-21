@@ -1,1 +1,1 @@
-export * from '../task/task.dto';
+export * from '../modules/task/dtos/task.dto';

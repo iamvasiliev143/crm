@@ -15,7 +15,9 @@
     "strict": true,
 
     "paths": {
-      "@core/db/entities": ["./apps/core/src/db/_entities"],
+      "@core/shared/controllers": ["./apps/core/src/shared/_controllers"],
+      "@core/shared/entities": ["./apps/core/src/shared/_entities"],
+      "@core/shared/services": ["./apps/core/src/shared/_services"],
 
       "@core/admin/controllers": ["./apps/core/src/admin/_controllers"],
       "@core/admin/dtos": ["./apps/core/src/admin/_dtos"],
@@ -27,7 +29,7 @@
 
       "@shared/configs": ["./apps/main/src/shared/configs"],
       "@shared/entities": ["./apps/main/src/shared/_entities"],
-      "@shared/modules": ["./apps/main/src/shared/modules"],
+      "@shared/modules": ["./apps/main/src/shared/_modules"],
     }
   }
 }

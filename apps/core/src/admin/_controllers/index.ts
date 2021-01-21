@@ -1,2 +1,2 @@
-export * from '../task/task.controller';
-export * from '../trader/trader.controller';
+export * from '../modules/task/task.controller';
+export * from '../modules/trader/trader.controller';

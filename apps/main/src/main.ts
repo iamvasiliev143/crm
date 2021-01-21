@@ -5,8 +5,8 @@ import { NestFactory } from '@nestjs/core';
 import { BadRequestException, ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
-import { GlobalAdminModule } from './apps/admin/admin.module';
-import { GlobalTraderModule } from './apps/trader/trader.module';
+import { GlobalAdminModule } from './admin/admin.module';
+import { GlobalTraderModule } from './trader/trader.module';
 
 import { CONFIG } from '@shared/configs';
 

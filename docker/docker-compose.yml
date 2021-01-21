@@ -22,4 +22,5 @@ services:
       PMA_USER: root
       PMA_PASSWORD: 2N*KH_-A@aCX=QH
       PMA_ARBITRARY: 1
+      UPLOAD_LIMIT: 300M
       PMA_ABSOLUTE_URI: http://pma.blagoon.local

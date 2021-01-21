@@ -1,2 +1,2 @@
-export * from '../task/task.service';
-export * from '../trader/trader.service';
+export * from '../modules/task/task.service';
+export * from '../modules/trader/trader.service';
