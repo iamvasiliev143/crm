@@ -1,6 +1,16 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  JoinColumn,
+} from 'typeorm';
 
 import { Trader as CoreTrader } from '@core/shared/entities';
+
+/**
+ * TODO: fix dependent circulation on generic
+ */
 
 @Entity()
 export class Task<Trader extends CoreTrader = CoreTrader> {
@@ -16,7 +26,7 @@ export class Task<Trader extends CoreTrader = CoreTrader> {
   @Column({ type: 'datetime', comment: 'Created At' })
   createdAt!: Date;
 
-  @ManyToOne('Trader', 'id', {onDelete: 'CASCADE'})
+  @ManyToOne('Trader', 'id', { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'id' })
   trader?: Trader;
 }

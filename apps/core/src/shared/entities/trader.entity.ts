@@ -1,7 +1,17 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany, JoinColumn } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  OneToMany,
+  JoinColumn,
+} from 'typeorm';
 import { IsEmail, IsMobilePhone, IsDate } from 'class-validator';
 
 import { Task as CoreTask } from '@core/shared/entities';
+
+/**
+ * TODO: fix dependent circulation on generic
+ */
 
 @Entity()
 export class Trader<Task extends CoreTask = CoreTask> {
@@ -44,7 +54,7 @@ export class Trader<Task extends CoreTask = CoreTask> {
   @Column({ comment: 'ZIP' })
   zip!: number;
 
-  @OneToMany('Task', 'id', {onDelete: 'CASCADE'})
+  @OneToMany('Task', 'id', { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'id' })
   tasks?: Task[];
 }
