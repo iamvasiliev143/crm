@@ -9,7 +9,7 @@ import {
 import { TranslationService } from './translation.service';
 
 @ApiTags('Translations')
-@Controller('translation')
+@Controller('translations')
 export class TranslationTraderController extends CoreTranslationTraderController {
   constructor(protected readonly translationService: TranslationService) {
     super(translationService);
@@ -17,7 +17,7 @@ export class TranslationTraderController extends CoreTranslationTraderController
 }
 
 @ApiTags('Translations')
-@Controller('translation')
+@Controller('translations')
 export class TranslationAdminController extends CoreTranslationAdminController {
   constructor(protected readonly translationService: TranslationService) {
     super(translationService);

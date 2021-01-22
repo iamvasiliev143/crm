@@ -1,8 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { Language } from '@core/shared/entities';
-
 import {
   TranslationAdmin,
   TranslationEmail,
@@ -18,7 +16,6 @@ import { TranslationService } from './translation.service';
 @Module({
   imports: [
     TypeOrmModule.forFeature([
-      Language,
       TranslationAdmin,
       TranslationEmail,
       TranslationTrader,
@@ -35,7 +32,6 @@ export class TranslationTraderModule {}
 @Module({
   imports: [
     TypeOrmModule.forFeature([
-      Language,
       TranslationAdmin,
       TranslationEmail,
       TranslationTrader,

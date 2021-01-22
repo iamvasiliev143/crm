@@ -1,8 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany, JoinColumn } from 'typeorm';
 import { IsEmail, IsMobilePhone, IsDate } from 'class-validator';
 
+import { Task as CoreTask } from '@core/shared/entities';
+
 @Entity()
-export class Trader {
+export class Trader<Task extends CoreTask = CoreTask> {
   @PrimaryGeneratedColumn('uuid', { comment: 'Trader ID' })
   id!: string;
 
@@ -41,4 +43,8 @@ export class Trader {
 
   @Column({ comment: 'ZIP' })
   zip!: number;
+
+  @OneToMany('Task', 'id', {onDelete: 'CASCADE'})
+  @JoinColumn({ name: 'id' })
+  tasks?: Task[];
 }

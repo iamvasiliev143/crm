@@ -1,20 +1,22 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
-import { ApiTags, ApiOperation } from '@nestjs/swagger';
+import { Post, Body } from '@nestjs/common';
+import { ApiOperation, ApiCreatedResponse } from '@nestjs/swagger';
 
 import { TraderOpenLiveAccountDTO } from '@core/trader/dtos';
 
-@ApiTags('Open Account')
-@Controller('')
 export class CoreOpenAccountController {
-  @Post('/open-live-account')
+  @Post('/live')
   @ApiOperation({
     summary: 'Open Live Account',
   })
   async openLiveAccount(@Body() openAccount: TraderOpenLiveAccountDTO) {}
 
-  @Post('/open-demo-account')
+  @Post('/demo')
   @ApiOperation({
     summary: 'Open Demo Account',
+  })
+  @ApiCreatedResponse({
+    description: 'The record has been successfully created.',
+    type: TraderOpenLiveAccountDTO,
   })
   async openDemoAccount(@Body() openAccount: TraderOpenLiveAccountDTO) {}
 }

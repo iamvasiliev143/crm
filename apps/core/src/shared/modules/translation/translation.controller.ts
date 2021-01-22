@@ -1,18 +1,10 @@
-import { Controller, Get, Patch, Param } from '@nestjs/common';
-import { ApiTags, ApiOperation } from '@nestjs/swagger';
+import { Get, Patch, Delete, Param } from '@nestjs/common';
+import { ApiOperation, ApiCreatedResponse } from '@nestjs/swagger';
 
 import { TranslationService } from '@core/shared/services';
 
-@ApiTags('Translations')
-@Controller('')
 export class TranslationTraderController {
   constructor(protected readonly translationService: TranslationService) {}
-
-  @Get('/')
-  @ApiOperation({
-    summary: 'Get Languages',
-  })
-  async getLanguages() {}
 
   @Get('/:langCode')
   @ApiOperation({
@@ -23,16 +15,8 @@ export class TranslationTraderController {
   }
 }
 
-@ApiTags('Translations')
-@Controller('')
 export class TranslationAdminController {
   constructor(protected readonly translationService: TranslationService) {}
-
-  @Get('/')
-  @ApiOperation({
-    summary: 'Get Languages',
-  })
-  async getLanguages() {}
 
   @Get('/:langCode')
   @ApiOperation({
@@ -42,11 +26,23 @@ export class TranslationAdminController {
     return langCode;
   }
 
-  @Patch('/:langCode/update')
+  @Patch('/:langCode')
   @ApiOperation({
     summary: 'Update Translation',
   })
+  @ApiCreatedResponse({
+    description: undefined,
+    type: undefined,
+  })
   async updateTranslation(@Param('langCode') langCode: string) {
+    return langCode;
+  }
+
+  @Delete('/:langCode')
+  @ApiOperation({
+    summary: 'Delete Translation',
+  })
+  async deleteTranslation(@Param('langCode') langCode: string) {
     return langCode;
   }
 }

@@ -1,21 +1,9 @@
-import {
-  Controller,
-  Logger,
-  Get,
-  Post,
-  Patch,
-  Delete,
-  Body,
-  Param,
-  Query,
-} from '@nestjs/common';
-import { ApiTags, ApiOperation, ApiQuery } from '@nestjs/swagger';
+import { Logger, Get, Post, Patch, Body, Param, Query } from '@nestjs/common';
+import { ApiOperation, ApiQuery } from '@nestjs/swagger';
 
 import { TaskService } from '@core/admin/services';
 import { TaskDTO } from '@core/admin/dtos';
 
-@ApiTags('Tasks')
-@Controller('tasks')
 export class TaskController {
   public readonly logger = new Logger(TaskController.name);
 
@@ -23,7 +11,7 @@ export class TaskController {
 
   @Get('/')
   @ApiOperation({
-    summary: 'Getting tasks',
+    summary: 'Get tasks',
   })
   @ApiQuery({ name: 'pageIndex', required: false })
   @ApiQuery({ name: 'pageSize', required: false })
@@ -31,9 +19,21 @@ export class TaskController {
     return await this.taskService.getAllTasks();
   }
 
-  @Post('/create')
+  @Post('/task')
   @ApiOperation({
-    summary: 'Creating task',
+    summary: 'Create task',
   })
   async createTask(@Body() taskDTO: TaskDTO) {}
+
+  @Get('/task/:taskID')
+  @ApiOperation({
+    summary: 'Get task',
+  })
+  async getTask(@Param('taskID') taskID: string) {}
+
+  @Patch('/task/:taskID')
+  @ApiOperation({
+    summary: 'Update task',
+  })
+  async updateTask(@Param('taskID') taskID: string, @Body() taskDTO: TaskDTO) {}
 }

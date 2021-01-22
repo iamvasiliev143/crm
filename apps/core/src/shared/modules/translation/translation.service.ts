@@ -1,13 +1,21 @@
-import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
-// import { Trader as CoreTrader } from '@core/shared/entities';
+import {
+  TranslationAdmin as CoreTranslationAdmin,
+  TranslationEmail as CoreTranslationEmail,
+  TranslationTrader as CoreTranslationTrader,
+} from '@core/shared/entities';
 
-@Injectable()
 export class TranslationService {
-  // constructor(
-  //   @InjectRepository(CoreTrader)
-  //   protected readonly traderRepo: Repository<CoreTrader>,
-  // ) {}
+  constructor(
+    @InjectRepository(CoreTranslationAdmin)
+    protected readonly tranalationAdminRepo: Repository<CoreTranslationAdmin>,
+
+    @InjectRepository(CoreTranslationEmail)
+    protected readonly tranalationEmailRepo: Repository<CoreTranslationEmail>,
+
+    @InjectRepository(CoreTranslationTrader)
+    protected readonly tranalationTraderRepo: Repository<CoreTranslationTrader>,
+  ) {}
 }

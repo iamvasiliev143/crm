@@ -8,13 +8,10 @@ import {
 import { Task } from '@shared/entities';
 
 @Entity()
-export class Trader extends TraderCore {
+export class Trader extends TraderCore<Task> {
   @Column({ length: 100, comment: 'Leverage' })
   leverage!: string;
 
   @OneToOne((type) => LanguageCore, { onDelete: 'CASCADE' })
   language?: LanguageCore;
-
-  @OneToMany((type) => Task, (task) => task.trader, { onDelete: 'CASCADE' })
-  tasks?: Task[];
 }
