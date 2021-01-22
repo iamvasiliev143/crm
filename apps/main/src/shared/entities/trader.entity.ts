@@ -1,17 +1,13 @@
-import { Entity, Column, OneToOne, OneToMany } from 'typeorm';
+import { Entity, Column } from 'typeorm';
 
 import {
   Trader as TraderCore,
-  Language as LanguageCore,
 } from '@core/shared/entities';
 
-import { Task } from '@shared/entities';
+import { Task, Language } from '@shared/entities';
 
 @Entity()
-export class Trader extends TraderCore<Task> {
+export class Trader extends TraderCore<Task, Language> {
   @Column({ length: 100, comment: 'Leverage' })
   leverage!: string;
-
-  @OneToOne((type) => LanguageCore, { onDelete: 'CASCADE' })
-  language?: LanguageCore;
 }

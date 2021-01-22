@@ -8,12 +8,7 @@ import {
 
 import { Trader as CoreTrader } from '@core/shared/entities';
 
-/**
- * TODO: fix dependent circulation on generic
- */
-
-@Entity()
-export class Task<Trader extends CoreTrader = CoreTrader> {
+export class Task<Trader = (undefined extends CoreTrader<infer T> | undefined ? T | undefined : never)> {
   @PrimaryGeneratedColumn('uuid', { comment: 'Task ID' })
   id!: string;
 

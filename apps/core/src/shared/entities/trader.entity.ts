@@ -1,20 +1,23 @@
 import {
-  Entity,
   PrimaryGeneratedColumn,
   Column,
+  OneToOne,
   OneToMany,
   JoinColumn,
 } from 'typeorm';
 import { IsEmail, IsMobilePhone, IsDate } from 'class-validator';
 
-import { Task as CoreTask } from '@core/shared/entities';
+import {
+  Language as CoreLanguage,
+  Task as CoreTask,
+} from '@core/shared/entities';
 
-/**
- * TODO: fix dependent circulation on generic
- */
-
-@Entity()
-export class Trader<Task extends CoreTask = CoreTask> {
+export class Trader<
+  Task = undefined extends CoreTask<infer T> | undefined
+    ? T | undefined
+    : never,
+    Language = CoreLanguage
+> {
   @PrimaryGeneratedColumn('uuid', { comment: 'Trader ID' })
   id!: string;
 
@@ -53,6 +56,9 @@ export class Trader<Task extends CoreTask = CoreTask> {
 
   @Column({ comment: 'ZIP' })
   zip!: number;
+
+  @OneToOne('Language', 'id', { onDelete: 'CASCADE' })
+  language!: Language;
 
   @OneToMany('Task', 'id', { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'id' })
