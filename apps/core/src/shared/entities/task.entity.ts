@@ -1,14 +1,12 @@
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  ManyToOne,
-  JoinColumn,
-} from 'typeorm';
+import { PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
 
 import { Trader as CoreTrader } from '@core/shared/entities';
 
-export class Task<Trader = (undefined extends CoreTrader<infer T> | undefined ? T | undefined : never)> {
+export class Task<
+  Trader = undefined extends CoreTrader<infer T> | undefined
+    ? T | undefined
+    : never
+> {
   @PrimaryGeneratedColumn('uuid', { comment: 'Task ID' })
   id!: string;
 

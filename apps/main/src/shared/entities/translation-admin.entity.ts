@@ -1,4 +1,4 @@
-import { ColumnType, Entity } from 'typeorm';
+import { Entity } from 'typeorm';
 
 import { TranslationAdmin as CoreTranslationAdmin } from '@core/shared/entities';
 

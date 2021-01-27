@@ -5,22 +5,22 @@ import { Repository } from 'typeorm';
 import { TranslationService as CoreTranslationService } from '@core/shared/services';
 
 import {
-  TranslationAdmin as CoreTranslationAdmin,
-  TranslationEmail as CoreTranslationEmail,
-  TranslationTrader as CoreTranslationTrader,
+  TranslationAdmin,
+  TranslationEmail,
+  TranslationTrader,
 } from '@shared/entities';
 
 @Injectable()
 export class TranslationService extends CoreTranslationService {
   constructor(
-    @InjectRepository(CoreTranslationAdmin)
-    protected readonly tranalationAdminRepo: Repository<CoreTranslationAdmin>,
+    @InjectRepository(TranslationAdmin)
+    protected readonly tranalationAdminRepo: Repository<TranslationAdmin>,
 
-    @InjectRepository(CoreTranslationEmail)
-    protected readonly tranalationEmailRepo: Repository<CoreTranslationEmail>,
+    @InjectRepository(TranslationEmail)
+    protected readonly tranalationEmailRepo: Repository<TranslationEmail>,
 
-    @InjectRepository(CoreTranslationTrader)
-    protected readonly tranalationTraderRepo: Repository<CoreTranslationTrader>,
+    @InjectRepository(TranslationTrader)
+    protected readonly tranalationTraderRepo: Repository<TranslationTrader>,
   ) {
     super(tranalationAdminRepo, tranalationEmailRepo, tranalationTraderRepo);
   }

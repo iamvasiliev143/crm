@@ -1,4 +1,4 @@
-import { Logger, Get, Post, Patch, Body, Param, Query } from '@nestjs/common';
+import { Logger, Get, Post, Patch, Body, Param } from '@nestjs/common';
 import { ApiOperation, ApiQuery } from '@nestjs/swagger';
 
 import { TaskService } from '@core/admin/services';

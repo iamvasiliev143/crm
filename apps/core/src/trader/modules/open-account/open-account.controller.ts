@@ -1,9 +1,11 @@
-import { Post, Body } from '@nestjs/common';
+import { Logger, Post, Body } from '@nestjs/common';
 import { ApiOperation, ApiCreatedResponse } from '@nestjs/swagger';
 
 import { TraderOpenLiveAccountDTO } from '@core/trader/dtos';
 
 export class CoreOpenAccountController {
+  public readonly logger = new Logger(CoreOpenAccountController.name);
+
   @Post('/live')
   @ApiOperation({
     summary: 'Open Live Account',

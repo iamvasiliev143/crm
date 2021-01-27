@@ -16,6 +16,7 @@
 
     "paths": {
       "@core/shared/controllers": ["./apps/core/src/shared/_controllers"],
+      "@core/shared/dtos": ["./apps/core/src/shared/_dtos"],
       "@core/shared/entities": ["./apps/core/src/shared/_entities"],
       "@core/shared/services": ["./apps/core/src/shared/_services"],
 

@@ -1,8 +1,6 @@
 import { Entity, Column } from 'typeorm';
 
-import {
-  Trader as TraderCore,
-} from '@core/shared/entities';
+import { Trader as TraderCore } from '@core/shared/entities';
 
 import { Task, Language } from '@shared/entities';
 

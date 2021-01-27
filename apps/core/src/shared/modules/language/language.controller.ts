@@ -1,44 +1,59 @@
-import { Get, Patch, Delete, Param } from '@nestjs/common';
+import { Logger, Get, Post, Patch, Delete, Body, Param } from '@nestjs/common';
 import { ApiOperation } from '@nestjs/swagger';
 
 import { LanguageService } from './language.service';
 
+import { LanguageDTO } from './dtos/language.dto';
+
 export class LanguageTraderController {
-  constructor(protected readonly languageService: LanguageService) {
-  }
+  public readonly logger = new Logger(LanguageTraderController.name);
+
+  constructor(protected readonly languageService: LanguageService) {}
 
   @Get('/')
   @ApiOperation({
     summary: 'Get Languages',
   })
   async getLanguages() {
+    return await this.languageService.getLanguages();
   }
 }
 
 export class LanguageAdminController {
-  constructor(protected readonly languageService: LanguageService) {
-  }
+  constructor(protected readonly languageService: LanguageService) {}
 
   @Get('/')
   @ApiOperation({
     summary: 'Get Languages',
   })
   async getLanguages() {
+    return await this.languageService.getLanguages();
   }
 
-  @Patch('/:langCode')
+  @Post('/')
+  @ApiOperation({
+    summary: 'Create Language',
+  })
+  async createLanguage(@Body() languageDTO: LanguageDTO) {
+    return this.languageService.createLanguage(languageDTO);
+  }
+
+  @Patch('/:languageCode')
   @ApiOperation({
     summary: 'Update Language',
   })
-  async updateLanguage(@Param('langCode') langCode: string) {
-    return langCode;
+  async updateLanguage(
+    @Param('languageCode') languageCode: string,
+    @Body() languageDTO: LanguageDTO,
+  ) {
+    await this.languageService.updateLanguage(languageCode, languageDTO);
   }
 
-  @Delete('/:langCode')
+  @Delete('/:languageCode')
   @ApiOperation({
     summary: 'Delete Language',
   })
-  async deleteLanguage(@Param('langCode') langCode: string) {
-    return langCode;
+  async deleteLanguage(@Param('languageCode') languageCode: string) {
+    await this.languageService.deleteLanguage(languageCode);
   }
 }

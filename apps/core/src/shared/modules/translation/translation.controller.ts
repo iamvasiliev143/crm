@@ -1,48 +1,47 @@
-import { Get, Patch, Delete, Param } from '@nestjs/common';
-import { ApiOperation, ApiCreatedResponse } from '@nestjs/swagger';
+import { Logger, Get, Patch, Param, Body } from '@nestjs/common';
+import { ApiOperation, ApiBody } from '@nestjs/swagger';
 
 import { TranslationService } from '@core/shared/services';
 
+import { TranslationDTO } from './dtos/translation.dto';
+
 export class TranslationTraderController {
+  public readonly logger = new Logger(TranslationService.name);
+
   constructor(protected readonly translationService: TranslationService) {}
 
-  @Get('/:langCode')
+  @Get('/:languageCode')
   @ApiOperation({
-    summary: 'Get Translation',
+    summary: 'Get Translation of Trader',
   })
-  async getTranslation(@Param('langCode') langCode: string) {
-    return langCode;
+  async getTranslation(@Param('languageCode') languageCode: string) {
+    return await this.translationService.getTranslationTrader(languageCode);
   }
 }
 
 export class TranslationAdminController {
   constructor(protected readonly translationService: TranslationService) {}
 
-  @Get('/:langCode')
+  @Get('trader/:languageCode')
   @ApiOperation({
-    summary: 'Get Translation',
+    summary: 'Get Translation of Trader',
   })
-  async getTranslation(@Param('langCode') langCode: string) {
-    return langCode;
+  async getTranslation(@Param('languageCode') languageCode: string) {
+    return await this.translationService.getTranslationTrader(languageCode);
   }
 
-  @Patch('/:langCode')
+  @Patch('trader/:languageCode')
   @ApiOperation({
-    summary: 'Update Translation',
+    summary: 'Update Translation of Trader',
   })
-  @ApiCreatedResponse({
-    description: undefined,
-    type: undefined,
-  })
-  async updateTranslation(@Param('langCode') langCode: string) {
-    return langCode;
-  }
-
-  @Delete('/:langCode')
-  @ApiOperation({
-    summary: 'Delete Translation',
-  })
-  async deleteTranslation(@Param('langCode') langCode: string) {
-    return langCode;
+  @ApiBody({ type: [TranslationDTO] })
+  async updateTranslation(
+    @Param('languageCode') languageCode: string,
+    @Body() translationDTO: TranslationDTO[],
+  ) {
+    return await this.translationService.updateTranslationTrader(
+      languageCode,
+      translationDTO,
+    );
   }
 }

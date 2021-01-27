@@ -1,19 +1,12 @@
-import { Entity, Column } from 'typeorm';
+import { PrimaryColumn, Column } from 'typeorm';
 
-@Entity()
 export class Translation {
-  @Column({ comment: 'Language Code', length: 2 })
+  @PrimaryColumn({ comment: 'Language Code' })
   code!: string;
 
-  @Column('text', { comment: 'Key' })
+  @PrimaryColumn({ comment: 'Key' })
   key!: string;
 
   @Column('text', { comment: 'Translation' })
   translation!: string;
-
-  @Column({ type: 'datetime', comment: 'Created At' })
-  createdAt!: Date;
-
-  @Column({ type: 'datetime', comment: 'Updated At' })
-  updatedAt!: Date;
 }

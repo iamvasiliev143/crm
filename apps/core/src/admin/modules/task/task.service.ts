@@ -1,9 +1,12 @@
+import { Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
-import { Task, Trader } from '@core/shared/entities';
+import { Task } from '@core/shared/entities';
 
 export class TaskService {
+  public readonly logger = new Logger(Logger.name);
+
   constructor(
     @InjectRepository(Task)
     protected readonly taskRepo: Repository<Task>,

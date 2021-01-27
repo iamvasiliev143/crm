@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { Language as CoreLanguage } from '@core/shared/entities';
+import { Language } from '@shared/entities';
 
 import {
   LanguageTraderController,
@@ -10,11 +10,7 @@ import {
 import { LanguageService } from './language.service';
 
 @Module({
-  imports: [
-    TypeOrmModule.forFeature([
-      CoreLanguage,
-    ]),
-  ],
+  imports: [TypeOrmModule.forFeature([Language])],
 
   controllers: [LanguageTraderController],
   providers: [LanguageService],
@@ -24,11 +20,7 @@ import { LanguageService } from './language.service';
 export class LanguageTraderModule {}
 
 @Module({
-  imports: [
-    TypeOrmModule.forFeature([
-      CoreLanguage,
-    ]),
-  ],
+  imports: [TypeOrmModule.forFeature([Language])],
 
   controllers: [LanguageAdminController],
   providers: [LanguageService],

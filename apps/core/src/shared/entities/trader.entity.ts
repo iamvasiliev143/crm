@@ -16,7 +16,7 @@ export class Trader<
   Task = undefined extends CoreTask<infer T> | undefined
     ? T | undefined
     : never,
-    Language = CoreLanguage
+  Language = CoreLanguage
 > {
   @PrimaryGeneratedColumn('uuid', { comment: 'Trader ID' })
   id!: string;
