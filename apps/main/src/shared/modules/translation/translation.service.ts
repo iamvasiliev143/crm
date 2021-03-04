@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Inject } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
@@ -21,7 +21,18 @@ export class TranslationService extends CoreTranslationService {
 
     @InjectRepository(TranslationTrader)
     protected readonly tranalationTraderRepo: Repository<TranslationTrader>,
+
+    protected readonly adminTranslations: Object,
+    protected readonly emailTranslations: Object,
+    protected readonly traderTranslations: Object,
   ) {
-    super(tranalationAdminRepo, tranalationEmailRepo, tranalationTraderRepo);
+    super(
+      tranalationAdminRepo,
+      tranalationEmailRepo,
+      tranalationTraderRepo,
+      adminTranslations,
+      emailTranslations,
+      traderTranslations,
+    );
   }
 }

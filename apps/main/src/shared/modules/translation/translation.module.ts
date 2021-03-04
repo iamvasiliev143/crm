@@ -11,7 +11,10 @@ import {
   TranslationTraderController,
   TranslationAdminController,
 } from './translation.controller';
+
 import { TranslationService } from './translation.service';
+
+import { TRADER_TRANSLATIONS } from '@shared/configs';
 
 @Module({
   imports: [
@@ -23,7 +26,13 @@ import { TranslationService } from './translation.service';
   ],
 
   controllers: [TranslationTraderController],
-  providers: [TranslationService],
+  providers: [
+    TranslationService,
+    {
+      provide: 'TRADER_TRANSLATIONS',
+      useValue: TRADER_TRANSLATIONS,
+    },
+  ],
 
   exports: [TypeOrmModule],
 })
@@ -39,8 +48,13 @@ export class TranslationTraderModule {}
   ],
 
   controllers: [TranslationAdminController],
-  providers: [TranslationService],
-
+  providers: [
+    TranslationService,
+    {
+      provide: 'TRADER_TRANSLATIONS',
+      useValue: TRADER_TRANSLATIONS,
+    },
+  ],
   exports: [TypeOrmModule],
 })
 export class TranslationAdminModule {}

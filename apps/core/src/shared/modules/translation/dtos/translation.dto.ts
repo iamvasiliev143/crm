@@ -1,10 +1,9 @@
 import { ApiProperty } from '@nestjs/swagger';
 
 import { IsNotEmpty } from 'class-validator';
-import moment from 'moment';
 
 export class TranslationDTO {
-  code!: string;
+  code?: string;
 
   @IsNotEmpty({ message: 'Key of Translation cannot be empty!' })
   @ApiProperty({

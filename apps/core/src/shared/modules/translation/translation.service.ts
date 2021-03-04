@@ -1,6 +1,8 @@
-import { Logger } from '@nestjs/common';
+import { Inject, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { flatten, unflatten } from 'flat';
+import { chain } from 'lodash';
 
 import {
   TranslationAdmin as CoreTranslationAdmin,
@@ -9,6 +11,8 @@ import {
 } from '@core/shared/entities';
 
 import { TranslationDTO } from './dtos/translation.dto';
+
+import { TRADER_TRANSLATIONS } from '@core/shared/configs';
 
 export class TranslationService {
   public readonly logger = new Logger(TranslationService.name);
@@ -22,12 +26,24 @@ export class TranslationService {
 
     @InjectRepository(CoreTranslationTrader)
     protected readonly tranalationTraderRepo: Repository<CoreTranslationTrader>,
-  ) {}
 
-  async getTranslationTrader(
-    languageCode: string,
-  ): Promise<CoreTranslationTrader[]> {
-    return await this.tranalationTraderRepo.find({ code: languageCode });
+    @Inject('TRADER_TRANSLATIONS')
+    protected readonly adminTranslations: Object,
+
+    @Inject('TRADER_TRANSLATIONS')
+    protected readonly emailTranslations: Object,
+
+    @Inject('TRADER_TRANSLATIONS')
+    protected readonly traderTranslations: Object,
+  ) {
+    this.prepareToDB(traderTranslations);
+  }
+
+  async getTranslationTrader(languageCode: string): Promise<any> {
+    const translations = await this.tranalationTraderRepo.find({
+      code: languageCode,
+    });
+    return this.prepareFromDB(translations);
   }
 
   async updateTranslationTrader(
@@ -39,5 +55,27 @@ export class TranslationService {
     );
 
     return await this.tranalationTraderRepo.save(translationDTO);
+  }
+
+  prepareToDB(translations: {}) {
+    const preparedTranslations: TranslationDTO[] = chain(
+      flatten(translations) as {},
+    )
+      .map((value: string, key: string) => {
+        return { key: key, translation: value };
+      })
+      .value();
+
+    console.log(preparedTranslations);
+    this.updateTranslationTrader('en', preparedTranslations);
+  }
+
+  prepareFromDB(translations: any = TRADER_TRANSLATIONS) {
+    return unflatten(
+      chain(translations)
+        .keyBy('key')
+        .mapValues((row) => row.translation)
+        .value(),
+    );
   }
 }
