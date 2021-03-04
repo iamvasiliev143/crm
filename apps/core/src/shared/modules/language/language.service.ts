@@ -31,7 +31,10 @@ export class LanguageService {
   }
 
   async createLanguage(languageDTO: LanguageDTO): Promise<CoreLanguage> {
-    this.translationService.prepareToDB(languageDTO.code, this.traderTranslations);
+    this.translationService.prepareToDB(
+      languageDTO.code,
+      this.traderTranslations,
+    );
     return await this.languageRepo.save(languageDTO);
   }
 
