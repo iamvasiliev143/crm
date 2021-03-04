@@ -39,10 +39,9 @@ export class LanguageService {
   }
 
   async updateLanguage(
-    languageCode: string,
     languageDTO: LanguageDTO,
   ): Promise<void> {
-    await this.languageRepo.update({ code: languageCode }, languageDTO);
+    await this.languageRepo.update({ code: languageDTO.code }, languageDTO);
   }
 
   async deleteLanguage(languageCode: string): Promise<void> {
