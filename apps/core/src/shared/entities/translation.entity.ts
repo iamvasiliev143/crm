@@ -1,7 +1,7 @@
 import { PrimaryColumn, Column } from 'typeorm';
 
 export class Translation {
-  @Column({ comment: 'Language Code' })
+  @PrimaryColumn({ comment: 'Language Code' })
   code!: string;
 
   @PrimaryColumn({ comment: 'Key' })
