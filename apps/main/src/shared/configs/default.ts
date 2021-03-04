@@ -20,7 +20,7 @@ export const CONFIG = {
 
   SWAGGER_ADMIN_PREFIX: process.env.SWAGGER_ADMIN_PREFIX || 'api/doc/admin',
   SWAGGER_ADMIN_TITLE:
-    process.env.SWAGGER_ADMIN_PREFIX || 'The Blue Lagoon: Admin',
+    process.env.SWAGGER_ADMIN_TITLE || 'The Blue Lagoon: Admin',
   SWAGGER_ADMIN_DESCRIPTION:
     process.env.SWAGGER_ADMIN_DESCRIPTION || 'Admin API description',
   SWAGGER_ADMIN_VERSION: process.env.SWAGGER_ADMIN_VERSION || '1.0',
