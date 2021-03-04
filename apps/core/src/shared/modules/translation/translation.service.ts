@@ -66,7 +66,6 @@ export class TranslationService {
       })
       .value();
 
-    console.log(preparedTranslations);
     this.updateTranslationTrader('en', preparedTranslations);
   }
 
