@@ -36,7 +36,7 @@ export class TranslationService {
     @Inject('TRADER_TRANSLATIONS')
     protected readonly traderTranslations: Object,
   ) {
-    this.prepareToDB(traderTranslations);
+    this.prepareToDB('en', traderTranslations);
   }
 
   async getTranslationTrader(languageCode: string): Promise<any> {
@@ -57,7 +57,7 @@ export class TranslationService {
     return await this.tranalationTraderRepo.save(translationDTO);
   }
 
-  prepareToDB(translations: {}) {
+  prepareToDB(lang: string = 'en', translations: {}) {
     const preparedTranslations: TranslationDTO[] = chain(
       flatten(translations) as {},
     )
@@ -66,7 +66,7 @@ export class TranslationService {
       })
       .value();
 
-    this.updateTranslationTrader('en', preparedTranslations);
+    this.updateTranslationTrader(lang, preparedTranslations);
   }
 
   prepareFromDB(translations: any = TRADER_TRANSLATIONS) {

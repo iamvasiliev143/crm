@@ -14,7 +14,11 @@ import {
 
 import { TranslationService } from './translation.service';
 
-import { TRADER_TRANSLATIONS } from '@shared/configs';
+import {
+  ADMIN_TRANSLATIONS,
+  EMAIL_TRANSLATIONS,
+  TRADER_TRANSLATIONS,
+} from '@shared/configs';
 
 @Module({
   imports: [
@@ -26,15 +30,39 @@ import { TRADER_TRANSLATIONS } from '@shared/configs';
   ],
 
   controllers: [TranslationTraderController],
+
   providers: [
     TranslationService,
+    {
+      provide: 'ADMIN_TRANSLATIONS',
+      useValue: ADMIN_TRANSLATIONS,
+    },
+    {
+      provide: 'EMAIL_TRANSLATIONS',
+      useValue: EMAIL_TRANSLATIONS,
+    },
     {
       provide: 'TRADER_TRANSLATIONS',
       useValue: TRADER_TRANSLATIONS,
     },
   ],
 
-  exports: [TypeOrmModule],
+  exports: [
+    TypeOrmModule,
+    TranslationService,
+    {
+      provide: 'ADMIN_TRANSLATIONS',
+      useValue: ADMIN_TRANSLATIONS,
+    },
+    {
+      provide: 'EMAIL_TRANSLATIONS',
+      useValue: EMAIL_TRANSLATIONS,
+    },
+    {
+      provide: 'TRADER_TRANSLATIONS',
+      useValue: TRADER_TRANSLATIONS,
+    },
+  ],
 })
 export class TranslationTraderModule {}
 
@@ -48,13 +76,38 @@ export class TranslationTraderModule {}
   ],
 
   controllers: [TranslationAdminController],
+
   providers: [
     TranslationService,
+    {
+      provide: 'ADMIN_TRANSLATIONS',
+      useValue: ADMIN_TRANSLATIONS,
+    },
+    {
+      provide: 'EMAIL_TRANSLATIONS',
+      useValue: EMAIL_TRANSLATIONS,
+    },
     {
       provide: 'TRADER_TRANSLATIONS',
       useValue: TRADER_TRANSLATIONS,
     },
   ],
-  exports: [TypeOrmModule],
+
+  exports: [
+    TypeOrmModule,
+    TranslationService,
+    {
+      provide: 'ADMIN_TRANSLATIONS',
+      useValue: ADMIN_TRANSLATIONS,
+    },
+    {
+      provide: 'EMAIL_TRANSLATIONS',
+      useValue: EMAIL_TRANSLATIONS,
+    },
+    {
+      provide: 'TRADER_TRANSLATIONS',
+      useValue: TRADER_TRANSLATIONS,
+    },
+  ],
 })
 export class TranslationAdminModule {}

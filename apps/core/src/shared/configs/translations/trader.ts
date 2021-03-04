@@ -12,8 +12,8 @@ export const TRADER_TRANSLATIONS = {
       cash_transactions: {
         deposit: 'Deposit',
         withdraw: 'Withdraw',
-        transfer: 'Transfer'
-      }
+        transfer: 'Transfer',
+      },
     },
   },
 };
