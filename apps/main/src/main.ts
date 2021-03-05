@@ -53,18 +53,15 @@ async function bootstrap() {
     traderSwaggerConfigs,
   );
 
-  SwaggerModule.setup(CONFIG.SWAGGER_ADMIN_PREFIX,
-    admin,
-    adminSwaggerDocument
-  );
+  SwaggerModule.setup(CONFIG.SWAGGER_ADMIN_PREFIX, admin, adminSwaggerDocument);
   SwaggerModule.setup(
     CONFIG.SWAGGER_TRADER_PREFIX,
     trader,
     traderSwaggerDocument,
   );
 
-  await admin.init();
-  await trader.init();
+  admin.init();
+  trader.init();
 
   await adapter.listen(CONFIG.APP_PORT);
 }
