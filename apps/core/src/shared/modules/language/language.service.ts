@@ -27,7 +27,6 @@ export class LanguageService {
   ) {}
 
   async getLanguages(): Promise<CoreLanguage[]> {
-    console.log(123)
     return await this.languageRepo.find();
   }
 
@@ -39,9 +38,7 @@ export class LanguageService {
     return await this.languageRepo.save(languageDTO);
   }
 
-  async updateLanguage(
-    languageDTO: LanguageDTO,
-  ): Promise<void> {
+  async updateLanguage(languageDTO: LanguageDTO): Promise<void> {
     await this.languageRepo.update({ code: languageDTO.code }, languageDTO);
   }
 

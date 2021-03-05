@@ -38,13 +38,11 @@ export class LanguageAdminController {
     return this.languageService.createLanguage(languageDTO);
   }
 
-  @Patch('')
+  @Patch('/')
   @ApiOperation({
     summary: 'Update Language',
   })
-  async updateLanguage(
-    @Body() languageDTO: LanguageDTO,
-  ) {
+  async updateLanguage(@Body() languageDTO: LanguageDTO) {
     await this.languageService.updateLanguage(languageDTO);
   }
 

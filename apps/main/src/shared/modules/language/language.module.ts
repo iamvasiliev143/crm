@@ -3,7 +3,10 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { Language } from '@shared/entities';
 
-import { TranslationTraderModule, TranslationAdminModule } from '../translation/translation.module';
+import {
+  TranslationTraderModule,
+  TranslationAdminModule,
+} from '../translation/translation.module';
 
 import {
   LanguageTraderController,
