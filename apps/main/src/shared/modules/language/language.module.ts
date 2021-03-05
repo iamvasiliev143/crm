@@ -3,7 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { Language } from '@shared/entities';
 
-import { TranslationAdminModule } from '../translation/translation.module';
+import { TranslationTraderModule, TranslationAdminModule } from '../translation/translation.module';
 
 import {
   LanguageTraderController,
@@ -13,7 +13,7 @@ import {
 import { LanguageService } from './language.service';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Language]), TranslationAdminModule],
+  imports: [TypeOrmModule.forFeature([Language]), TranslationTraderModule],
 
   controllers: [LanguageTraderController],
 

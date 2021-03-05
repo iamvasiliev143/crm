@@ -27,6 +27,7 @@ export class LanguageService {
   ) {}
 
   async getLanguages(): Promise<CoreLanguage[]> {
+    console.log(123)
     return await this.languageRepo.find();
   }
 
