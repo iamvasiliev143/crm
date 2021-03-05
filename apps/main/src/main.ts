@@ -60,8 +60,9 @@ async function bootstrap() {
     traderSwaggerDocument,
   );
 
-  admin.init();
-  trader.init();
+  const servers = [admin.init(), trader.init()];
+
+  await Promise.all(servers);
 
   await adapter.listen(CONFIG.APP_PORT);
 }
