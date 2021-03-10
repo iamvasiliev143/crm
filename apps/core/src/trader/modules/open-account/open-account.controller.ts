@@ -3,8 +3,8 @@ import { ApiOperation, ApiCreatedResponse } from '@nestjs/swagger';
 
 import { TraderOpenLiveAccountDTO } from '@core/trader/dtos';
 
-export class CoreOpenAccountController {
-  public readonly logger = new Logger(CoreOpenAccountController.name);
+export class OpenAccountController {
+  public readonly logger = new Logger(OpenAccountController.name);
 
   @Post('/live')
   @ApiOperation({
