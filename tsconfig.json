@@ -16,6 +16,7 @@
 
     "paths": {
       "@core/shared/configs": ["./apps/core/src/shared/_configs"],
+      "@core/shared/consts": ["./apps/core/src/shared/_consts"],
       "@core/shared/controllers": ["./apps/core/src/shared/_controllers"],
       "@core/shared/dtos": ["./apps/core/src/shared/_dtos"],
       "@core/shared/entities": ["./apps/core/src/shared/_entities"],
@@ -30,6 +31,7 @@
       "@core/trader/services": ["./apps/core/src/trader/_services"],
 
       "@shared/configs": ["./apps/main/src/shared/_configs"],
+      "@shared/consts": ["./apps/main/src/shared/_consts"],
       "@shared/entities": ["./apps/main/src/shared/_entities"],
       "@shared/modules": ["./apps/main/src/shared/_modules"],
     }
