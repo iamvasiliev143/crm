@@ -1,5 +1,3 @@
-import { CurrencyC as CoreCurrencyC } from '@core/shared/consts';
+import { CurrencyE } from '@core/shared/consts';
 
-export const CurrencyC = {
-  ...CoreCurrencyC
-};
+export default CurrencyE;

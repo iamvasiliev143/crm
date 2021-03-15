@@ -2,17 +2,17 @@ import { Logger, Inject } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 
-import { Language as CoreLanguage } from '@core/shared/entities';
+import { TranslationService } from '@core/shared/services';
 
-import { LanguageDTO } from './dtos/language.dto';
-import { TranslationService } from '../translation/translation.service';
+import { Language } from '@core/shared/entities';
+import { LanguageDTO } from '@core/shared/dtos';
 
 export class LanguageService {
   public readonly logger = new Logger(LanguageService.name);
 
   constructor(
-    @InjectRepository(CoreLanguage)
-    protected readonly languageRepo: Repository<CoreLanguage>,
+    @InjectRepository(Language)
+    protected readonly languageRepo: Repository<Language>,
 
     protected readonly translationService: TranslationService,
 
@@ -26,11 +26,11 @@ export class LanguageService {
     protected readonly traderTranslations: Object,
   ) {}
 
-  async getLanguages(): Promise<CoreLanguage[]> {
+  async getLanguages(): Promise<Language[]> {
     return await this.languageRepo.find();
   }
 
-  async createLanguage(languageDTO: LanguageDTO): Promise<CoreLanguage> {
+  async createLanguage(languageDTO: LanguageDTO): Promise<Language> {
     this.translationService.prepareToDB(
       languageDTO.code,
       this.traderTranslations,

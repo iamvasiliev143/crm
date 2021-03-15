@@ -1,5 +1,5 @@
-export const CurrencyC = {
-  USD: 'USD',
-  EUR: 'EUR',
-  GPB: 'GPB',
+export enum CurrencyE {
+  USD = 'USD',
+  EUR = 'EUR',
+  GPB = 'GPB',
 }

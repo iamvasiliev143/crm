@@ -8,12 +8,12 @@ export class AccountTypeController {
 
   constructor(protected readonly accountTypesService: AccountTypeService) {}
 
-  @Get('/live')
+  @Get('/trading')
   @ApiOperation({
-    summary: 'Get Accounts of Type Live',
+    summary: 'Get Accounts of Type Trading',
   })
-  async getLive() {
-    return this.accountTypesService.getLive();
+  async getTrading() {
+    return this.accountTypesService.getTrading();
   }
 
   @Get('/demo')

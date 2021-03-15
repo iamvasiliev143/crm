@@ -13,7 +13,7 @@ export class AccountTypeService {
     protected readonly accountTypeRepo: Repository<AccountType>,
   ) {}
 
-  async getLive() {
+  async getTrading() {
     return await this.accountTypeRepo.find({
       where: {
         type: AccountTypeE.trading,

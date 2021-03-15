@@ -5,7 +5,7 @@ import { Repository } from 'typeorm';
 import { Task } from '@core/shared/entities';
 
 export class TaskService {
-  public readonly logger = new Logger(Logger.name);
+  public readonly logger = new Logger(TaskService.name);
 
   constructor(
     @InjectRepository(Task)

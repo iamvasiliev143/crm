@@ -2,7 +2,7 @@ import { ApiProperty } from '@nestjs/swagger';
 
 import { IsNotEmpty, IsEmail, IsMobilePhone } from 'class-validator';
 
-export class TraderOpenLiveAccountDTO {
+export class TraderOpenTradingAccountDTO {
   @IsNotEmpty({ message: 'First Name cannot be empty!' })
   @ApiProperty({
     type: String,

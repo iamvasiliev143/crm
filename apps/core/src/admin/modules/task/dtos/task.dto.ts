@@ -6,7 +6,7 @@ export class TaskDTO {
   @IsNotEmpty({ message: 'Title cannot be empty!' })
   @ApiProperty({
     type: String,
-    example: 'Task #1',
+    example: `Task #${Date.now()}`,
   })
   title!: string;
 
