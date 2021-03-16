@@ -28,4 +28,10 @@ export class AccountTypeService {
       ...accountTypeDTO,
     });
   }
+
+  async deleteAccountType(accountTypeId: string): Promise<void> {
+    await this.accountTypeRepo.delete({
+      id: accountTypeId,
+    });
+  }
 }

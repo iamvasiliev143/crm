@@ -1,5 +1,5 @@
-import { Logger, Post, Patch, Param, Body } from '@nestjs/common';
-import { ApiOperation, ApiBody } from '@nestjs/swagger';
+import { Logger, Post, Patch, Delete, Param, Body } from '@nestjs/common';
+import { ApiOperation } from '@nestjs/swagger';
 
 import { AccountTypeService } from '@core/admin/services';
 
@@ -14,7 +14,6 @@ export class AccountTypeController {
   @ApiOperation({
     summary: 'Create Account Type',
   })
-  @ApiBody({ type: AccountTypeDTO })
   async createAccountType(@Body() accountTypeDTO: AccountTypeDTO) {
     return await this.accountTypeService.createAccountType(accountTypeDTO);
   }
@@ -23,7 +22,6 @@ export class AccountTypeController {
   @ApiOperation({
     summary: 'Update Account Type',
   })
-  @ApiBody({ type: AccountTypeDTO })
   async updateTranslation(
     @Param('accountTypeId') accountTypeId: string,
     @Body() accountTypeDTO: AccountTypeDTO,
@@ -32,5 +30,13 @@ export class AccountTypeController {
       accountTypeId,
       accountTypeDTO,
     );
+  }
+
+  @Delete('/account-type/:accountTypeId')
+  @ApiOperation({
+    summary: 'Delete Account Type',
+  })
+  async deleteTranslation(@Param('accountTypeId') accountTypeId: string) {
+    await this.accountTypeService.deleteAccountType(accountTypeId);
   }
 }
