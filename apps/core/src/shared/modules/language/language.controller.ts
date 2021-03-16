@@ -1,9 +1,9 @@
 import { Logger, Get, Post, Patch, Delete, Body, Param } from '@nestjs/common';
 import { ApiOperation } from '@nestjs/swagger';
 
-import { LanguageService } from './language.service';
+import { LanguageService } from '@core/shared/services';
 
-import { LanguageDTO } from './dtos/language.dto';
+import { LanguageDTO } from '@core/shared/dtos';
 
 export class LanguageTraderController {
   public readonly logger = new Logger(LanguageTraderController.name);

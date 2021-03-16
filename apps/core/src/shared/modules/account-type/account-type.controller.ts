@@ -1,7 +1,9 @@
 import { Logger, Get } from '@nestjs/common';
-import { ApiOperation } from '@nestjs/swagger';
+import { ApiOperation, ApiParam } from '@nestjs/swagger';
 
 import { AccountTypeService } from '@core/shared/services';
+
+import { AccountTypeE } from '@core/shared/consts';
 
 export class AccountTypeController {
   public readonly logger = new Logger(AccountTypeController.name);

@@ -1,5 +1,5 @@
 import { Logger, Get, Patch, Param, Body } from '@nestjs/common';
-import { ApiOperation, ApiBody } from '@nestjs/swagger';
+import { ApiOperation } from '@nestjs/swagger';
 
 import { TranslationService } from '@core/shared/services';
 
@@ -34,7 +34,6 @@ export class TranslationAdminController {
   @ApiOperation({
     summary: 'Update Translation of Trader',
   })
-  @ApiBody({ type: [TranslationDTO] })
   async updateTranslation(
     @Param('languageCode') languageCode: string,
     @Body() translationDTO: TranslationDTO[],
