@@ -17,7 +17,7 @@ import { TraderModule } from './modules/trader/trader.module';
 
     LanguageAdminModule,
     TranslationAdminModule,
-    
+
     SharedAccountTypeModule,
     AccountTypeModule,
 

@@ -20,11 +20,13 @@
       "@core/shared/controllers": ["./apps/core/src/shared/_controllers"],
       "@core/shared/dtos": ["./apps/core/src/shared/_dtos"],
       "@core/shared/entities": ["./apps/core/src/shared/_entities"],
+      "@core/shared/helpers": ["./apps/core/src/shared/_helpers"],
+      "@core/shared/interfaces": ["./apps/core/src/shared/_interfaces"],
       "@core/shared/services": ["./apps/core/src/shared/_services"],
 
       "@core/admin/controllers": ["./apps/core/src/admin/_controllers"],
       "@core/admin/dtos": ["./apps/core/src/admin/_dtos"],
-      "@core/admin/services": ["./apps/core/src/admin/_services"],
+      "@core/admin/services": ["apps/core/src/admin/_services"],
 
       "@core/trader/controllers": ["./apps/core/src/trader/_controllers"],
       "@core/trader/dtos": ["./apps/core/src/trader/_dtos"],
@@ -32,6 +34,7 @@
 
       "@shared/configs": ["./apps/main/src/shared/_configs"],
       "@shared/entities": ["./apps/main/src/shared/_entities"],
+      "@shared/helpers": ["./apps/main/src/shared/_helpers"],
       "@shared/modules": ["./apps/main/src/shared/_modules"],
     }
   }

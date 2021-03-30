@@ -11,9 +11,9 @@ import { AccountTypeController } from './account-type.controller';
   imports: [TypeOrmModule.forFeature([AccountType])],
 
   controllers: [AccountTypeController],
-  
+
   providers: [AccountTypeService],
 
-  exports: [TypeOrmModule]
+  exports: [TypeOrmModule],
 })
 export class AccountTypeModule {}

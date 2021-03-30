@@ -4,21 +4,22 @@ import {
   DatabaseModule,
   LanguageTraderModule,
   TranslationTraderModule,
-
-  AccountTypeModule
+  AccountTypeModule,
 } from '@shared/modules';
 
 import { OpenAccountModule } from './modules/open-account/open-account.module';
+import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
   imports: [
     DatabaseModule,
-    
+
     LanguageTraderModule,
     TranslationTraderModule,
 
     AccountTypeModule,
     OpenAccountModule,
+    AuthModule,
   ],
 })
 export class GlobalTraderModule {}
