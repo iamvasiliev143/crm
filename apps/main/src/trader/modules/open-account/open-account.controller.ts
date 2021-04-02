@@ -4,7 +4,10 @@ import { ApiTags, ApiOperation, ApiCreatedResponse } from '@nestjs/swagger';
 import { OpenAccountController as CoreOpenAccountController } from '@core/trader/controllers';
 import { OpenAccountService } from './open-account.service';
 
-import { TraderOpenTradingAccountDTO, TraderOpenDemoAccountDTO } from '@trader/dtos';
+import {
+  TraderOpenTradingAccountDTO,
+  TraderOpenDemoAccountDTO,
+} from '@trader/dtos';
 
 @ApiTags('Open Account')
 @Controller('open-account')

@@ -10,22 +10,22 @@ const fieldsToId: {
   [index: string]: string;
 } = {
   accountType: 'id',
-  language: 'code'
+  language: 'code',
 };
 
 const extraConditions: {
   [index: string]: {
-    type: AccountTypeE
+    type: AccountTypeE;
   };
-}  = {
+} = {
   TraderOpenTradingAccountDTO_accountType: {
-    type: AccountTypeE.trading
+    type: AccountTypeE.trading,
   },
 
   TraderOpenDemoAccountDTO_accountType: {
-    type: AccountTypeE.demo
-  }
-}
+    type: AccountTypeE.demo,
+  },
+};
 
 interface UniqueValidationArguments<E> extends ValidationArguments {
   constraints: [
@@ -71,7 +71,11 @@ export abstract class ExistValidator implements ValidatorConstraintInterface {
       findCondition = fieldsToId[findCondition.toString()];
     }
 
-    if(Object.keys(extraConditions).includes(`${args.targetName}_${args.property}`)) {
+    if (
+      Object.keys(extraConditions).includes(
+        `${args.targetName}_${args.property}`,
+      )
+    ) {
       conditions = extraConditions[`${args.targetName}_${args.property}`];
     }
 
@@ -82,7 +86,7 @@ export abstract class ExistValidator implements ValidatorConstraintInterface {
             ? findCondition(args)
             : {
                 [findCondition || args.property]: value,
-                ...conditions
+                ...conditions,
               },
       })) <= 0
     );

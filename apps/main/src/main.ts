@@ -26,7 +26,7 @@ async function bootstrap() {
   admin.useGlobalPipes(
     new ValidationPipe({
       validationError: {
-        target: false
+        target: false,
       },
       exceptionFactory: (errors) => new BadRequestException(errors),
     }),
@@ -35,7 +35,7 @@ async function bootstrap() {
   trader.useGlobalPipes(
     new ValidationPipe({
       validationError: {
-        target: false
+        target: false,
       },
       exceptionFactory: (errors) => new BadRequestException(errors),
     }),

@@ -4,7 +4,10 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import * as bcrypt from 'bcrypt';
 
-import { TraderOpenTradingAccountDTO, TraderOpenDemoAccountDTO } from '@core/trader/dtos';
+import {
+  TraderOpenTradingAccountDTO,
+  TraderOpenDemoAccountDTO,
+} from '@core/trader/dtos';
 import { Trader } from '@core/shared/entities';
 
 export class OpenAccountService {

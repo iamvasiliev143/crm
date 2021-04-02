@@ -90,7 +90,7 @@ export class TraderOpenBaseAccountDTO {
   @Matches(PasswordRegex)
   @ApiProperty({
     type: String,
-    example: MakePassword()
+    example: MakePassword(),
   })
   password!: string;
 

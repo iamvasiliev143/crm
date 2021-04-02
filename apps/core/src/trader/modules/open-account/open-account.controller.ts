@@ -2,7 +2,10 @@ import { Logger, Post, Body } from '@nestjs/common';
 import { ApiOperation } from '@nestjs/swagger';
 
 import { OpenAccountService } from '@core/trader/services';
-import { TraderOpenTradingAccountDTO, TraderOpenDemoAccountDTO } from '@core/trader/dtos';
+import {
+  TraderOpenTradingAccountDTO,
+  TraderOpenDemoAccountDTO,
+} from '@core/trader/dtos';
 
 export class OpenAccountController {
   public readonly logger = new Logger(OpenAccountController.name);
