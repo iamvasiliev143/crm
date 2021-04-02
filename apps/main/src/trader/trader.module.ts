@@ -26,8 +26,6 @@ import { AuthModule } from './modules/auth/auth.module';
 })
 export class GlobalTraderModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer
-      .apply(LoggerMiddleware)
-      .forRoutes('/');
+    consumer.apply(LoggerMiddleware).forRoutes('/');
   }
 }
