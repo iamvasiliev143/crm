@@ -6,14 +6,14 @@ export class LanguageDTO {
   @IsNotEmpty({ message: 'Code cannot be empty!' })
   @ApiProperty({
     type: String,
-    example: 'ru',
+    example: 'en',
   })
   readonly code!: string;
 
   @IsNotEmpty({ message: 'Title cannot be empty!' })
   @ApiProperty({
     type: String,
-    example: 'Russian',
+    example: 'English',
   })
   readonly title!: string;
 

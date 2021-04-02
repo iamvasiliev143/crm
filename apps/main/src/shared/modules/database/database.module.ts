@@ -15,6 +15,7 @@ import { CONFIG } from '@shared/configs';
       synchronize: true,
       autoLoadEntities: true,
       keepConnectionAlive: true,
+      timezone: '0',
     }),
   ],
 

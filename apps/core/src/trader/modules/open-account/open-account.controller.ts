@@ -1,24 +1,27 @@
 import { Logger, Post, Body } from '@nestjs/common';
-import { ApiOperation, ApiCreatedResponse } from '@nestjs/swagger';
+import { ApiOperation } from '@nestjs/swagger';
 
-import { TraderOpenTradingAccountDTO } from '@core/trader/dtos';
+import { OpenAccountService } from '@core/trader/services';
+import { TraderOpenTradingAccountDTO, TraderOpenDemoAccountDTO } from '@core/trader/dtos';
 
 export class OpenAccountController {
   public readonly logger = new Logger(OpenAccountController.name);
+
+  constructor(protected readonly openAccountService: OpenAccountService) {}
 
   @Post('/trading')
   @ApiOperation({
     summary: 'Open Trading Account',
   })
-  async openTradingAccount(@Body() openAccount: TraderOpenTradingAccountDTO) {}
+  async openTradingAccount(@Body() trader: TraderOpenTradingAccountDTO) {
+    return await this.openAccountService.openTradingAccount(trader);
+  }
 
   @Post('/demo')
   @ApiOperation({
     summary: 'Open Demo Account',
   })
-  @ApiCreatedResponse({
-    description: 'The record has been successfully created.',
-    type: TraderOpenTradingAccountDTO,
-  })
-  async openDemoAccount(@Body() openAccount: TraderOpenTradingAccountDTO) {}
+  async openDemoAccount(@Body() trader: TraderOpenDemoAccountDTO) {
+    return await this.openAccountService.openTradingAccount(trader);
+  }
 }

@@ -4,8 +4,11 @@ import {
   OneToOne,
   OneToMany,
   JoinColumn,
+  Index,
 } from 'typeorm';
 import { IsEmail, IsMobilePhone, IsDate } from 'class-validator';
+
+import { MessengerTypeE } from '@core/shared/consts';
 
 import {
   Language as CoreLanguage,
@@ -21,17 +24,18 @@ export class Trader<
   @PrimaryGeneratedColumn('uuid', { comment: 'Trader ID' })
   id!: string;
 
-  @Column({ length: 128, nullable: false, comment: 'First Name' })
+  @Column({ length: 64, nullable: false, comment: 'First Name' })
   firstName!: string;
 
-  @Column({ length: 128, nullable: false, comment: 'Last Name' })
+  @Column({ length: 64, nullable: false, comment: 'Last Name' })
   lastName!: string;
 
-  @Column({ type: 'datetime', comment: 'Birth Date' })
+  @Column({ type: 'date', comment: 'Birth Date' })
   @IsDate()
   birthDate!: Date;
 
-  @Column({ length: 254, comment: 'Email' })
+  @Column({ comment: 'Email' })
+  @Index({ unique: true })
   @IsEmail()
   email!: string;
 
@@ -42,25 +46,51 @@ export class Trader<
   @IsMobilePhone()
   phone!: string;
 
-  @Column({ length: 100, nullable: true, default: null, comment: 'Skype' })
-  skype!: string;
+  @Column({
+    type: 'enum',
+    enum: MessengerTypeE,
+    nullable: true,
+    comment: 'Messenger Type',
+  })
+  messengerType!: MessengerTypeE;
 
-  @Column({ length: 100, comment: 'Country' })
+  @Column({ length: 64, nullable: true, comment: 'Messenger Account' })
+  messengerAccount!: string;
+
+  @Column({ length: 2, comment: 'Country' })
   country!: string;
 
-  @Column({ length: 100, comment: 'Province' })
+  @Column({ comment: 'Province' })
   province!: string;
 
-  @Column({ length: 100, comment: 'City' })
+  @Column({ comment: 'City' })
   city!: string;
 
   @Column({ comment: 'ZIP' })
   zip!: number;
 
-  @OneToOne('Language', 'id', { onDelete: 'CASCADE' })
+  @Column({ length: 100, comment: 'Leverage' })
+  leverage!: string;
+
+  @OneToOne('Language', 'code', { onDelete: 'CASCADE' })
+  @JoinColumn({ name: 'language' })
   language!: Language;
 
+  @Column({ comment: 'Timezone' })
+  @IsDate()
+  timezone!: string;
+
   @OneToMany('Task', 'id', { onDelete: 'CASCADE' })
-  @JoinColumn({ name: 'id' })
+  @JoinColumn({ name: 'tasks' })
   tasks?: Task[];
+
+  @Column({
+    type: 'datetime',
+    nullable: false,
+    readonly: true,
+    comment: 'Created At',
+    default: () => 'CURRENT_TIMESTAMP',
+  })
+  @IsDate()
+  createdAt!: Date;
 }

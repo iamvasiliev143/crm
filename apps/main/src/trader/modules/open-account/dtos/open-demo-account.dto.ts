@@ -12,9 +12,9 @@ import { AccountType, Trader, Language } from '@shared/entities';
 
 import { IsExist, IsUnique } from '@shared/helpers';
 
-import { TraderOpenTradingAccountDTO as CoreTraderOpenTradingAccountDTO } from '@core/trader/dtos';
+import { TraderOpenDemoAccountDTO as CoreTraderOpenDemoAccountDTO } from '@core/trader/dtos';
 
-export class TraderOpenTradingAccountDTO extends CoreTraderOpenTradingAccountDTO {
+export class TraderOpenDemoAccountDTO extends CoreTraderOpenDemoAccountDTO {
   @IsNotEmpty({ message: 'Account Type cannot be empty!' })
   @IsString()
   @Validate(IsExist, [AccountType])

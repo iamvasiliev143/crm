@@ -26,7 +26,7 @@
 
       "@core/admin/controllers": ["./apps/core/src/admin/_controllers"],
       "@core/admin/dtos": ["./apps/core/src/admin/_dtos"],
-      "@core/admin/services": ["apps/core/src/admin/_services"],
+      "@core/admin/services": ["./apps/core/src/admin/_services"],
 
       "@core/trader/controllers": ["./apps/core/src/trader/_controllers"],
       "@core/trader/dtos": ["./apps/core/src/trader/_dtos"],
@@ -36,6 +36,8 @@
       "@shared/entities": ["./apps/main/src/shared/_entities"],
       "@shared/helpers": ["./apps/main/src/shared/_helpers"],
       "@shared/modules": ["./apps/main/src/shared/_modules"],
+  
+      "@trader/dtos": ["./apps/main/src/trader/_dtos"],
     }
   }
 }

@@ -5,10 +5,13 @@ import { NestFactory } from '@nestjs/core';
 import { BadRequestException, ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
+import { useContainer } from 'class-validator';
+
 import { GlobalAdminModule } from './admin/admin.module';
 import { GlobalTraderModule } from './trader/trader.module';
 
 import { CONFIG } from '@shared/configs';
+import { isArray } from 'lodash';
 
 async function bootstrap() {
   const server = express();
@@ -22,15 +25,22 @@ async function bootstrap() {
 
   admin.useGlobalPipes(
     new ValidationPipe({
+      validationError: {
+        target: false
+      },
       exceptionFactory: (errors) => new BadRequestException(errors),
     }),
   );
 
   trader.useGlobalPipes(
     new ValidationPipe({
+      validationError: {
+        target: false
+      },
       exceptionFactory: (errors) => new BadRequestException(errors),
     }),
   );
+  useContainer(trader.select(GlobalTraderModule), { fallbackOnErrors: true });
 
   const adminSwaggerConfigs = new DocumentBuilder()
     .setTitle(CONFIG.SWAGGER_ADMIN_TITLE)
