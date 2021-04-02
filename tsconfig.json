@@ -22,6 +22,7 @@
       "@core/shared/entities": ["./apps/core/src/shared/_entities"],
       "@core/shared/helpers": ["./apps/core/src/shared/_helpers"],
       "@core/shared/interfaces": ["./apps/core/src/shared/_interfaces"],
+      "@core/shared/middlewares": ["./apps/core/src/shared/_middlewares"],
       "@core/shared/services": ["./apps/core/src/shared/_services"],
 
       "@core/admin/controllers": ["./apps/core/src/admin/_controllers"],
@@ -36,6 +37,7 @@
       "@shared/entities": ["./apps/main/src/shared/_entities"],
       "@shared/helpers": ["./apps/main/src/shared/_helpers"],
       "@shared/modules": ["./apps/main/src/shared/_modules"],
+      "@shared/middlewares": ["./apps/main/src/shared/_middlewares"],
   
       "@trader/dtos": ["./apps/main/src/trader/_dtos"],
     }

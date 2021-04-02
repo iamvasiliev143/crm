@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module } from '@nestjs/common';
 
 import {
   DatabaseModule,
@@ -6,6 +6,8 @@ import {
   TranslationTraderModule,
   AccountTypeModule,
 } from '@shared/modules';
+
+import { LoggerMiddleware } from '@shared/middlewares';
 
 import { OpenAccountModule } from './modules/open-account/open-account.module';
 import { AuthModule } from './modules/auth/auth.module';
@@ -22,4 +24,10 @@ import { AuthModule } from './modules/auth/auth.module';
     AuthModule,
   ],
 })
-export class GlobalTraderModule {}
+export class GlobalTraderModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer
+      .apply(LoggerMiddleware)
+      .forRoutes('/');
+  }
+}
