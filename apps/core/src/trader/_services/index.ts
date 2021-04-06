@@ -1,1 +1,1 @@
-export * from '../modules/open-account/open-account.service';
+export * from '../modules/public/open-account/open-account.service';

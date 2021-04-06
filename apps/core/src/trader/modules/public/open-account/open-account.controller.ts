@@ -16,15 +16,15 @@ export class OpenAccountController {
   @ApiOperation({
     summary: 'Open Trading Account',
   })
-  async openTradingAccount(@Body() trader: TraderOpenTradingAccountDTO) {
-    return await this.openAccountService.openTradingAccount(trader);
+  async openTradingAccount(@Body() traderDTO: TraderOpenTradingAccountDTO) {
+    return await this.openAccountService.openTradingAccount(traderDTO);
   }
 
   @Post('/demo')
   @ApiOperation({
     summary: 'Open Demo Account',
   })
-  async openDemoAccount(@Body() trader: TraderOpenDemoAccountDTO) {
-    return await this.openAccountService.openTradingAccount(trader);
+  async openDemoAccount(@Body() traderDTO: TraderOpenDemoAccountDTO) {
+    return await this.openAccountService.openTradingAccount(traderDTO);
   }
 }
