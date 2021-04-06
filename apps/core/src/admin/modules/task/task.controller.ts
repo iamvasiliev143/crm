@@ -31,11 +31,15 @@ export class TaskController {
   @ApiOperation({
     summary: 'Get task',
   })
-  async getTask(@Param('taskID') taskID: string) {}
+  async getTask(@Param('taskID') taskID: string) {
+    return await this.taskService.getTask(taskID);
+  }
 
   @Patch('/task/:taskID')
   @ApiOperation({
     summary: 'Update task',
   })
-  async updateTask(@Param('taskID') taskID: string, @Body() taskDTO: TaskDTO) {}
+  async updateTask(@Param('taskID') taskID: string, @Body() taskDTO: TaskDTO) {
+    return await this.taskService.updateTask(taskID, taskDTO);
+  }
 }

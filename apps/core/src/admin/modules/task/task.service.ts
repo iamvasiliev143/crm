@@ -20,4 +20,20 @@ export class TaskService {
   async createTask(taskDTO: TaskDTO) {
     return await this.taskRepo.save(taskDTO);
   }
+
+  async getTask(taskID: string) {
+    return await this.taskRepo.findOne({
+      where: {
+        id: taskID,
+      },
+      relations: ['trader'],
+    });
+  }
+
+  async updateTask(taskID: string, taskDTO: TaskDTO) {
+    return await this.taskRepo.save({
+      id: taskID,
+      ...taskDTO,
+    });
+  }
 }
