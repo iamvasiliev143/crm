@@ -1,11 +1,4 @@
-import {
-  PrimaryGeneratedColumn,
-  Column,
-  OneToOne,
-  OneToMany,
-  JoinColumn,
-  Index,
-} from 'typeorm';
+import { PrimaryGeneratedColumn, Column, Index } from 'typeorm';
 import { IsEmail, IsMobilePhone, IsDate } from 'class-validator';
 
 import { MessengerTypeE } from '@core/shared/consts';
@@ -30,9 +23,13 @@ export class Trader<
   @Column({ length: 64, nullable: false, comment: 'Last Name' })
   lastName!: string;
 
-  @Column({ type: 'date', comment: 'Birth Date' })
-  @IsDate()
-  birthDate!: Date;
+  // @Column({
+  //   type: 'date',
+  //   comment: 'Birth Date',
+  //   default: '2020-12-12',
+  // })
+  // @IsDate()
+  // birthDate!: Date;
 
   @Column({ comment: 'Email' })
   @Index({ unique: true })
@@ -72,17 +69,12 @@ export class Trader<
   @Column({ length: 100, comment: 'Leverage' })
   leverage!: string;
 
-  @OneToOne('Language', 'code', { onDelete: 'CASCADE' })
-  @JoinColumn({ name: 'language' })
-  language!: Language;
+  // @ManyToOne('Language', { eager: true })
+  // language!: Language;
 
   @Column({ comment: 'Timezone' })
   @IsDate()
   timezone!: string;
-
-  @OneToMany('Task', 'id', { onDelete: 'CASCADE' })
-  @JoinColumn({ name: 'tasks' })
-  tasks?: Task[];
 
   @Column({
     type: 'datetime',

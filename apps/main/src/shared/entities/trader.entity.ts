@@ -1,8 +1,11 @@
-import { Entity } from 'typeorm';
+import { Entity, OneToMany } from 'typeorm';
 
 import { Trader as TraderCore } from '@core/shared/entities';
 
 import { Task, Language } from '@shared/entities';
 
 @Entity()
-export class Trader extends TraderCore<Task, Language> {}
+export class Trader extends TraderCore<Task, Language> {
+  @OneToMany(() => Task, (task) => task.trader)
+  tasks!: Task[];
+}

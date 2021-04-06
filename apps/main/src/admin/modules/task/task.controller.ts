@@ -3,7 +3,7 @@ import { ApiTags } from '@nestjs/swagger';
 
 import { TaskController as CoreTaskController } from '@core/admin/controllers';
 
-import { TaskService } from './task.service';
+import { TaskService } from '@admin/services';
 
 @ApiTags('Tasks')
 @Controller('tasks')

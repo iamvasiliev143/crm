@@ -1,6 +1,6 @@
 export const PasswordGenerator = function () {
   const symbols =
-    '!?.,@#$%^&*_+-=<>(){}[]0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    '@$!%*#?&0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
   let password = '';
   for (let i = 0; i < 8; i++) {
@@ -14,10 +14,10 @@ export const MakePassword = () => {
   let password = PasswordGenerator();
 
   while (
-    !/[A-Z]/.test(password) ||
+    !/[@$!%*#?&]/.test(password) ||
     !/[0-9]/.test(password) ||
     !/[a-z]/.test(password) ||
-    !/[!?.,@#$%^&*_+-=<>(){}[]]/.test(password)
+    !/[A-Z]/.test(password)
   ) {
     password = PasswordGenerator();
   }

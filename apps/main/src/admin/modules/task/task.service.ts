@@ -14,12 +14,4 @@ export class TaskService extends CoreTaskService {
   ) {
     super(taskRepo);
   }
-
-  async createTask() {
-    return await this.taskRepo.save({
-      title: 'Test #2',
-      description: 'Description!',
-      createdAt: new Date(Date.now()),
-    });
-  }
 }

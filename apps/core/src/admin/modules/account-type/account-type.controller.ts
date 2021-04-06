@@ -24,11 +24,11 @@ export class AccountTypeController {
   })
   async updateTranslation(
     @Param('accountTypeId') accountTypeId: string,
-    @Body() accountTypeDTO: AccountTypeDTO,
+    @Body() accountType: AccountTypeDTO,
   ) {
     return await this.accountTypeService.updateAccountType(
       accountTypeId,
-      accountTypeDTO,
+      accountType,
     );
   }
 

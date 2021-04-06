@@ -9,8 +9,8 @@ import {
 
 import { LoggerMiddleware } from '@shared/middlewares';
 
-import { OpenAccountModule } from './modules/open-account/open-account.module';
-import { AuthModule } from './modules/auth/auth.module';
+import { OpenAccountModule } from './modules/public/open-account/open-account.module';
+import { AuthModule } from './modules/public/auth/auth.module';
 
 @Module({
   imports: [

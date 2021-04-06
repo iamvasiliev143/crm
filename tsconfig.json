@@ -39,6 +39,9 @@
       "@shared/modules": ["./apps/main/src/shared/_modules"],
       "@shared/middlewares": ["./apps/main/src/shared/_middlewares"],
   
+      "@admin/modules": ["./apps/main/src/admin/_modules"],
+      "@admin/services": ["./apps/main/src/admin/_services"],
+
       "@trader/dtos": ["./apps/main/src/trader/_dtos"],
     }
   }
