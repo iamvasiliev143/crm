@@ -23,7 +23,9 @@ export class TaskController {
   @ApiOperation({
     summary: 'Create task',
   })
-  async createTask(@Body() taskDTO: TaskDTO) {}
+  async createTask(@Body() taskDTO: TaskDTO) {
+    return await this.taskService.createTask(taskDTO);
+  }
 
   @Get('/task/:taskID')
   @ApiOperation({

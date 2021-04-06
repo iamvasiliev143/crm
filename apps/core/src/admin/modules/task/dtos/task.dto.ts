@@ -16,4 +16,11 @@ export class TaskDTO {
     example: 'Description',
   })
   description!: string;
+
+  @IsNotEmpty({ message: 'Description cannot be empty!' })
+  @ApiProperty({
+    type: String,
+    example: 'Description',
+  })
+  trader?: string;
 }
