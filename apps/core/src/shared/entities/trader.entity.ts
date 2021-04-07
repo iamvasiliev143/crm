@@ -1,19 +1,11 @@
-import { PrimaryGeneratedColumn, Column, Index } from 'typeorm';
+import { PrimaryGeneratedColumn, Column, Index, ManyToOne } from 'typeorm';
 import { IsEmail, IsMobilePhone, IsDate } from 'class-validator';
 
 import { MessengerTypeE } from '@core/shared/consts';
 
-import {
-  Language as CoreLanguage,
-  Task as CoreTask,
-} from '@core/shared/entities';
+import { Language as CoreLanguage, Task } from '@core/shared/entities';
 
-export class Trader<
-  Task = undefined extends CoreTask<infer T> | undefined
-    ? T | undefined
-    : never,
-  Language = CoreLanguage
-> {
+export class Trader<Language = CoreLanguage> {
   @PrimaryGeneratedColumn('uuid', { comment: 'Trader ID' })
   id!: string;
 
@@ -23,20 +15,20 @@ export class Trader<
   @Column({ length: 64, nullable: false, comment: 'Last Name' })
   lastName!: string;
 
-  // @Column({
-  //   type: 'date',
-  //   comment: 'Birth Date',
-  //   default: '2020-12-12',
-  // })
-  // @IsDate()
-  // birthDate!: Date;
+  @Column({
+    type: 'date',
+    comment: 'Birth Date',
+    default: '2020-12-12',
+  })
+  @IsDate()
+  birthDate!: Date;
 
   @Column({ comment: 'Email' })
   @Index({ unique: true })
   @IsEmail()
   email!: string;
 
-  @Column({ comment: 'Passowrd' })
+  @Column({ comment: 'Passowrd', select: false })
   password!: string;
 
   @Column({ length: 100, comment: 'Mobile Phone' })
@@ -69,12 +61,14 @@ export class Trader<
   @Column({ length: 100, comment: 'Leverage' })
   leverage!: string;
 
-  // @ManyToOne('Language', { eager: true })
-  // language!: Language;
+  @ManyToOne('Language', { eager: true })
+  language!: Language;
 
   @Column({ comment: 'Timezone' })
   @IsDate()
   timezone!: string;
+
+  tasks!: Task[];
 
   @Column({
     type: 'datetime',

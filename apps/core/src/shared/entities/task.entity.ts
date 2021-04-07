@@ -1,21 +1,38 @@
 import { PrimaryGeneratedColumn, Column } from 'typeorm';
 import { IsDate } from 'class-validator';
 
-import { Trader as CoreTrader } from '@core/shared/entities';
+import {
+  Trader,
+  TaskOpenDemoAccount,
+  TaskOpenTradingAccount,
+} from '@core/shared/entities';
+import { TaskStatusE, TaskTypeE } from '@core/shared/consts';
 
-export class Task<
-  Trader = undefined extends CoreTrader<infer T> | undefined
-    ? T | undefined
-    : never
-> {
+export class Task {
   @PrimaryGeneratedColumn('uuid', { comment: 'Task ID' })
   id!: string;
 
-  @Column({ length: 128, comment: 'Title' })
-  title!: string;
+  @Column({
+    type: 'enum',
+    enum: TaskStatusE,
+    comment: 'Task Status',
+    default: TaskStatusE.new,
+  })
+  status!: TaskStatusE;
 
-  @Column('text', { comment: 'Description' })
-  description!: string;
+  @Column({
+    type: 'enum',
+    enum: TaskTypeE,
+    comment: 'Task Type',
+    default: TaskTypeE.custom,
+  })
+  type!: TaskTypeE;
+
+  trader!: Trader;
+
+  openDemoAccount!: TaskOpenDemoAccount;
+
+  openTradingAccount!: TaskOpenTradingAccount;
 
   @Column({
     type: 'datetime',

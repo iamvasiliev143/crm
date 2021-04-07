@@ -10,8 +10,9 @@ import {
 } from '@core/trader/dtos';
 import { TaskDTO } from '@core/admin/dtos';
 import { Trader } from '@core/shared/entities';
+import { TaskTypeE } from '@core/shared/consts';
 
-// import { TaskService } from '@core/admin/services';
+import { TaskService } from '@core/admin/services';
 
 export class OpenAccountService {
   public readonly logger = new Logger(OpenAccountService.name);
@@ -19,35 +20,42 @@ export class OpenAccountService {
   constructor(
     @InjectRepository(Trader)
     protected readonly traderRepo: Repository<Trader>,
-    ) // protected readonly taskService: TaskService,
-  {}
+    protected readonly taskService: TaskService,
+  ) {}
 
   async openTradingAccount(traderDTO: TraderOpenTradingAccountDTO) {
     traderDTO.password = await bcrypt.hash(traderDTO.password, 10);
-
-    const taskPayload: TaskDTO = {
-      title: '123',
-      description: '123',
-    };
 
     const trader = await this.traderRepo.save({
       ...traderDTO,
       ...traderDTO.messenger,
     });
 
-    // const task = await this.taskService.createTask({...taskPayload, trader: trader.id});
-
-    return {
-      trader,
+    const taskPayload: TaskDTO = {
+      type: TaskTypeE.openTradingAccount,
+      trader: trader.id,
     };
+
+    await this.taskService.createTaskOpenTradingAccount(taskPayload);
+
+    return trader;
   }
 
   async openDemoAccount(traderDTO: TraderOpenDemoAccountDTO) {
     traderDTO.password = await bcrypt.hash(traderDTO.password, 10);
 
-    return await this.traderRepo.save({
+    const trader = await this.traderRepo.save({
       ...traderDTO,
       ...traderDTO.messenger,
     });
+
+    const taskPayload: TaskDTO = {
+      type: TaskTypeE.openDemoAccount,
+      trader: trader.id,
+    };
+
+    await this.taskService.createTaskOpenDemoAccount(taskPayload);
+
+    return trader;
   }
 }

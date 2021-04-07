@@ -1,4 +1,4 @@
-import { Logger, Get, Post, Patch, Body, Param } from '@nestjs/common';
+import { Logger, Get, Post, Patch, Body, Param, Query } from '@nestjs/common';
 import { ApiOperation, ApiQuery } from '@nestjs/swagger';
 
 import { TaskService } from '@core/admin/services';
@@ -15,8 +15,17 @@ export class TaskController {
   })
   @ApiQuery({ name: 'pageIndex', required: false })
   @ApiQuery({ name: 'pageSize', required: false })
-  async getAllTasks() {
-    return await this.taskService.getAllTasks();
+  @ApiQuery({ name: 'createdAtOrder', required: false, enum: ['ASC', 'DESC'] })
+  async getAllTasks(
+    @Query('pageIndex') pageIndex: number,
+    @Query('pageSize') pageSize: number,
+    @Query('createdAtOrder') createdAtOrder: 'ASC' | 'DESC',
+  ) {
+    return await this.taskService.getAllTasks(
+      pageIndex,
+      pageSize,
+      createdAtOrder,
+    );
   }
 
   @Post('/task')

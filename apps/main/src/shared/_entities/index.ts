@@ -5,4 +5,7 @@ export * from '../entities/translation-trader.entity';
 
 export * from '../entities/account-type.entity';
 export * from '../entities/trader.entity';
+
 export * from '../entities/task.entity';
+export * from '../entities/task-open-trading-account.entity';
+export * from '../entities/task-open-demo-account.entity';

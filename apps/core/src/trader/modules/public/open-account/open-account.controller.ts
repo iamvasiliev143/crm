@@ -25,6 +25,6 @@ export class OpenAccountController {
     summary: 'Open Demo Account',
   })
   async openDemoAccount(@Body() traderDTO: TraderOpenDemoAccountDTO) {
-    return await this.openAccountService.openTradingAccount(traderDTO);
+    return await this.openAccountService.openDemoAccount(traderDTO);
   }
 }

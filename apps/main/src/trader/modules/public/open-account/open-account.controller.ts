@@ -1,5 +1,5 @@
 import { Controller, Post, Body } from '@nestjs/common';
-import { ApiTags, ApiOperation, ApiCreatedResponse } from '@nestjs/swagger';
+import { ApiTags, ApiOperation } from '@nestjs/swagger';
 
 import { OpenAccountController as CoreOpenAccountController } from '@core/trader/controllers';
 import { OpenAccountService } from './open-account.service';
@@ -29,6 +29,6 @@ export class TraderOpenAccountController extends CoreOpenAccountController {
     summary: 'Open Demo Account',
   })
   async openDemoAccount(@Body() traderDTO: TraderOpenDemoAccountDTO) {
-    return await this.openAccountService.openTradingAccount(traderDTO);
+    return await this.openAccountService.openDemoAccount(traderDTO);
   }
 }

@@ -20,7 +20,7 @@ export class TraderOpenDemoAccountDTO extends CoreTraderOpenDemoAccountDTO {
   @Validate(IsExist, [AccountType])
   @ApiProperty({
     type: String,
-    example: 'c0bf0c71-2f86-4b8f-90c0-8c3ce31931e3',
+    example: 'c0bf0c71-2f86-4b8f-90c0-8c3ce31931e2',
   })
   accountType!: string;
 

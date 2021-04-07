@@ -1,9 +1,12 @@
-export const enum TASK_STATUS {
-  NEW,
-  DUE,
-  DONE,
+export enum TaskStatusE {
+  new = 'new',
+  due = 'due',
+  done = 'done',
 }
 
-export const enum TASK_TYPE {
-  REGISTRATION,
+export enum TaskTypeE {
+  openTradingAccount = 'openTradingAccount',
+  openDemoAccount = 'openDemoAccount',
+
+  custom = 'custom',
 }

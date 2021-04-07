@@ -11,7 +11,6 @@ import { GlobalAdminModule } from './admin/admin.module';
 import { GlobalTraderModule } from './trader/trader.module';
 
 import { CONFIG } from '@shared/configs';
-import { isArray } from 'lodash';
 
 async function bootstrap() {
   const server = express();
